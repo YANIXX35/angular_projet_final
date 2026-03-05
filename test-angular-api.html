@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Angular API</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Test API Contact</h1>
+    <button onclick="testAPI()">Tester l'API</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const data = {
+                name: "YANISSE KYLIANE YAO",
+                email: "kyliyanisse@gmail.com", 
+                subject: "Test depuis HTML",
+                message: "Ceci est un test depuis HTML pur"
+            };
+
+            console.log("Données envoyées:", data);
+
+            try {
+                const response = await axios.post('http://localhost:8001/api/contact/', data);
+                console.log("Réponse:", response.data);
+                document.getElementById('result').innerHTML = 
+                    `<h3>✅ Succès</h3><pre>${JSON.stringify(response.data, null, 2)}</pre>`;
+            } catch (error) {
+                console.error("Erreur:", error);
+                document.getElementById('result').innerHTML = 
+                    `<h3>❌ Erreur</h3><pre>${error.message}</pre>`;
+            }
+        }
+    </script>
+</body>
+</html>

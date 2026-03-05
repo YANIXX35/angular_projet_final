@@ -1,0 +1,264 @@
+<!-- Navigation -->
+<nav>
+  <div class="container">
+    <div class="nav-container">
+      <div class="logo">YK Yao</div>
+      <ul class="nav-links">
+        <li><a routerLink="/">Accueil</a></li>
+        <li><a routerLink="/apropos">À propos</a></li>
+        <li><a routerLink="/competences">Compétences</a></li>
+        <li><a routerLink="/projets">Projets</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Contactez-moi</h1>
+      <p>Discutons de vos projets et de nos collaborations possibles</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>📧 Coordonnées Directes</h2>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p>kyliyanisse@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Localisation</h3>
+              <p>Abidjan, Côte d'Ivoire</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🎯</div>
+            <div class="contact-details">
+              <h3>Disponibilité</h3>
+              <p>Open to opportunities</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⚡</div>
+            <div class="contact-details">
+              <h3>Temps de réponse</h3>
+              <p>Moins de 24h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <h2>📝 Envoyez un message</h2>
+        <p>Vous avez un projet en tête ? N'hésitez pas à me contacter pour le discuter !</p>
+        
+        <form class="contact-form" (ngSubmit)="onSubmitContact()">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input type="text" id="name" name="name" [(ngModel)]="contactForm().name" required placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" [(ngModel)]="contactForm().email" required placeholder="votre.email@exemple.com">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Sujet *</label>
+            <input type="text" id="subject" name="subject" [(ngModel)]="contactForm().subject" required placeholder="Sujet de votre message">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" [(ngModel)]="contactForm().message" rows="6" required placeholder="Décrivez votre projet ou votre demande..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="budget">Budget (optionnel)</label>
+            <select id="budget" name="budget" [(ngModel)]="contactForm().budget">
+              <option value="">Sélectionnez une fourchette</option>
+              <option value="moins-1000">Moins de 1000€</option>
+              <option value="1000-5000">1000€ - 5000€</option>
+              <option value="5000-10000">5000€ - 10000€</option>
+              <option value="10000-20000">10000€ - 20000€</option>
+              <option value="plus-20000">Plus de 20000€</option>
+              <option value="a-discuter">À discuter</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="timeline">Délai souhaité</label>
+            <select id="timeline" name="timeline" [(ngModel)]="contactForm().timeline">
+              <option value="">Sélectionnez un délai</option>
+              <option value="urgent">Urgent (< 1 mois)</option>
+              <option value="rapide">Rapide (1-2 mois)</option>
+              <option value="normal">Normal (2-4 mois)</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-btn" [disabled]="isSubmitting()">
+            @if (!isSubmitting()) {
+              <span>📤 Envoyer le message</span>
+            } @else {
+              <span>⏳ Envoi en cours...</span>
+            }
+          </button>
+          
+          @if (submitMessage()) {
+            <div class="submit-message" [class.success]="submitSuccess()" [class.error]="!submitSuccess()">
+              {{ submitMessage() }}
+            </div>
+          }
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services">
+  <div class="container">
+    <h2>🚀 Services Proposés</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Développement Frontend</h3>
+        <p>Création d'interfaces utilisateur modernes, réactives et accessibles avec les dernières technologies.</p>
+        <ul>
+          <li>Applications web SPA</li>
+          <li>Design responsive</li>
+          <li>Optimisation des performances</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Développement Backend</h3>
+        <p>Construction d'API robustes et sécurisées pour alimenter vos applications frontend.</p>
+        <ul>
+          <li>API RESTful</li>
+          <li>Gestion de bases de données</li>
+          <li>Authentification & sécurité</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Applications Full Stack</h3>
+        <p>Développement complet de applications web de A à Z, de la conception au déploiement.</p>
+        <ul>
+          <li>Architecture scalable</li>
+          <li>Intégration continue</li>
+          <li>Maintenance & support</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Consulting & Support</h3>
+        <p>Accompagnement technique et conseil pour vos projets existants ou futurs.</p>
+        <ul>
+          <li>Audit technique</li>
+          <li>Refactoring</li>
+          <li>Formation équipe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="process">
+  <div class="container">
+    <h2>📋 Mon Processus de Travail</h2>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Découverte & Analyse</h3>
+          <p>Compréhension approfondie de vos besoins, objectifs et contraintes techniques.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Proposition & Planning</h3>
+          <p>Proposition technique détaillée avec planning, estimations et recommandations.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Développement Itératif</h3>
+          <p>Développement par sprints avec démonstrations régulières et feedback continu.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Livraison & Support</h3>
+          <p>Déploiement en production avec formation et support post-livraison.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Prêt à commencer ?</h2>
+      <p>Transformons vos idées en réalité. Contactez-moi pour discuter de votre projet.</p>
+      <div class="cta-buttons">
+        <a routerLink="/projets" class="cta-button secondary">Voir mes projets</a>
+        <a routerLink="/competences" class="cta-button secondary">Mes compétences</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Yanisse Kyliane Yao</h4>
+        <p>Développeur Web Full Stack passionné par l'innovation numérique</p>
+      </div>
+      <div class="footer-section">
+        <h4>Navigation Rapide</h4>
+        <ul>
+          <li><a routerLink="/">Accueil</a></li>
+          <li><a routerLink="/apropos">À propos</a></li>
+          <li><a routerLink="/competences">Compétences</a></li>
+          <li><a routerLink="/projets">Projets</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>📧 kyliyanisse@gmail.com</p>
+        <p>📍 Abidjan, Côte d'Ivoire</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Yanisse Kyliane Yao. Tous droits réservés. | Développé avec ❤️ et Angular</p>
+    </div>
+  </div>
+</footer>
