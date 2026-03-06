@@ -128,6 +128,22 @@ main {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  .nav-container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-container {
+    max-width: 720px;
+  }
+  
+  .logo {
+    font-size: 1.6rem;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 20px;
@@ -140,6 +156,11 @@ main {
   
   .nav-links {
     gap: 5px;
+    display: none; /* Cacher le menu desktop */
+  }
+  
+  .menu-toggle {
+    display: flex; /* Afficher le hamburger */
   }
   
   .nav-links a {
@@ -155,6 +176,7 @@ main {
 @media (max-width: 640px) {
   .nav-container {
     padding: 0 15px;
+    height: 55px;
   }
   
   .logo {
@@ -172,5 +194,49 @@ main {
   
   main {
     margin-top: 55px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 12px;
+    height: 50px;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .nav-links {
+    gap: 2px;
+  }
+  
+  .nav-links a {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+  
+  main {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-container {
+    height: 45px;
+  }
+  
+  .logo {
+    font-size: 1.1rem;
+  }
+  
+  .nav-links a {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+  }
+  
+  main {
+    margin-top: 45px;
   }
 }

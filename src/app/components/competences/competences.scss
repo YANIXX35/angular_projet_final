@@ -109,6 +109,56 @@
   gap: 2rem;
 }
 
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .overview-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    gap: 1rem;
+  }
+  
+  .skill-item {
+    padding: 1rem;
+  }
+  
+  .overview-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    gap: 0.8rem;
+  }
+  
+  .skill-item {
+    padding: 0.8rem;
+  }
+  
+  .overview-card {
+    padding: 0.8rem;
+  }
+}
+
 .skill-item {
   background: white;
   padding: 1.5rem;
