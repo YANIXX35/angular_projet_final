@@ -1,4 +1,6 @@
 {
+  "version": 2,
+  "name": "yao",
   "builds": [
     {
       "src": "package.json",
@@ -14,10 +16,5 @@
       "dest": "/index.html"
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "cleanUrls": true
 }
