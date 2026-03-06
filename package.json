@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
+    "build:ssr": "ng build && ng run yao:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:yao": "node dist/yao/server/server.mjs"
