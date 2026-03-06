@@ -48,6 +48,123 @@ img {
 .btn-primary {
   background: linear-gradient(135deg, #ff6b6b, #ff3d3d);
   color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+/* Media Queries Globales */
+/* TABLETTE */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    width: 95%;
+    padding: 0 15px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* PETIT MOBILE */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  .container {
+    padding: 0 8px;
+  }
+
+  .btn-primary {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* TRÈS PETIT MOBILE */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  .container {
+    padding: 0 5px;
+  }
+
+  .btn-primary {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Boutons modernes */
+.btn-primary {
+  background: linear-gradient(135deg, #ff6b6b, #ff3d3d);
+  color: white;
   border: none;
   padding: 12px 30px;
   border-radius: 30px;

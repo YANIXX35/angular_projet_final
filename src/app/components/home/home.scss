@@ -21,6 +21,10 @@
   color: var(--text-primary);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 /* Effet de lumière subtil */
@@ -50,9 +54,14 @@
 }
 
 /* Responsive pour la section hero */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+  .hero {
+    gap: 60px;
+  }
+  
   .hero-content {
     gap: 60px;
+    padding: 0 15px;
   }
   
   .hero-text h1 {
@@ -176,7 +185,8 @@
 
 /* Cartes statistiques modernes */
 .hero-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 3rem;
 }
@@ -214,11 +224,18 @@
 }
 
 /* Responsive pour les statistiques */
+@media (max-width: 1024px) {
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-stats {
-    justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
     gap: 1rem;
+    justify-content: center;
   }
   
   .stat-item {
