@@ -14,7 +14,7 @@ export interface ContactForm {
   providedIn: 'root'
 })
 export class PortfolioService {
-  private apiUrl = 'http://localhost:8001/api';
+  private apiUrl = 'https://backend-django-9.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 

@@ -97,19 +97,9 @@
           <button 
             type="submit" 
             class="submit-btn"
-            [disabled]="isLoading"
+            [disabled]="isLoading || contactForm.invalid"
           >
             {{ isLoading ? "Envoi en cours..." : "Envoyer le message" }}
-          </button>
-          
-          <!-- Bouton de test pour diagnostiquer -->
-          <button 
-            type="button" 
-            class="test-btn"
-            (click)="testForm()"
-            style="margin-top: 10px; background: #28a745; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;"
-          >
-            🧪 Tester avec données fixes
           </button>
         </form>
       </div>
