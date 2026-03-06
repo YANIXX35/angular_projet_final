@@ -346,6 +346,12 @@ footer {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .project-content {
     grid-template-columns: 1fr;
@@ -354,6 +360,7 @@ footer {
 
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .tech-grid {
@@ -372,5 +379,13 @@ footer {
 
   .hero-content h1 {
     font-size: 2rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .featured-project {
+    padding: 2rem 0;
   }
 }
