@@ -1,20 +1,5 @@
 {
-  "version": 2,
-  "name": "yao",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/yao/browser"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
-  "cleanUrls": true
+  "buildCommand": "ng build --configuration production",
+  "framework": "angular",
+  "outputDirectory": "dist/yao/browser"
 }
