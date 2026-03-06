@@ -42,20 +42,62 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "10MB",
+                "maximumError": "20MB"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "500kB",
+                "maximumError": "1MB"
+              }
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
+                  "maximumWarning": "10MB",
+                  "maximumError": "20MB"
+                },
+                {
+                  "type": "anyComponentStyle",
                   "maximumWarning": "500kB",
                   "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "name": "home",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "name": "apropos",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "name": "projets",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "name": "contact",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "name": "competences",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
                 }
               ],
               "outputHashing": "all"
