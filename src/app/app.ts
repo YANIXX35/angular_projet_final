@@ -22,7 +22,7 @@ export class App {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.querySelector('.nav-links') as HTMLElement;
     
     if (menuToggle && navLinks) {
       menuToggle.classList.toggle('active');
