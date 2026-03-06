@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
 export interface ContactForm {
@@ -28,15 +28,26 @@ export class PortfolioService {
     // Vérifier que toutes les données sont présentes
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       console.error("❌ Données manquantes:", formData);
+      return throwError('Tous les champs sont requis');
     }
     
-    return this.http.post(url, formData).pipe(
+    // Ajouter des headers explicites
+    const httpOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    };
+    
+    return this.http.post(url, formData, httpOptions).pipe(
       tap(response => {
         console.log("✅ Réponse reçue du service:", response);
       }),
       catchError(error => {
         console.error("❌ Erreur dans le service:", error);
-        throw error;
+        console.error("Status:", error.status);
+        console.error("Message:", error.message);
+        return throwError(error);
       })
     );
   }
