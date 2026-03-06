@@ -44,15 +44,12 @@
   width: 100%;
 }
 
+/* Project Cards */
 .project-card {
   background: #f8f9fa;
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.project-card.featured {
   border: 3px solid #667eea;
   background: linear-gradient(135deg, #ffffff, #f8f9fa);
 }

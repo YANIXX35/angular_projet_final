@@ -25,49 +25,26 @@
 </section>
 
 <!-- Featured Project Section -->
-<section class="featured-project">
+<section class="featured-project" *ngIf="featuredProject">
   <div class="container">
     <div class="featured-badge">🔥 Projet Phare</div>
     <div class="project-card featured">
       <div class="project-header">
-        <h2>Plateforme Anti-Gaspillage Alimentaire</h2>
+        <h2>{{ featuredProject.title }}</h2>
         <div class="project-tech">
-          <span class="tech-tag">Angular</span>
-          <span class="tech-tag">Django</span>
-          <span class="tech-tag">MySQL</span>
-          <span class="tech-tag">REST API</span>
+          <span *ngFor="let tech of featuredProject.technologies" class="tech-tag">{{ tech }}</span>
         </div>
       </div>
       <div class="project-content">
         <div class="project-description">
-          <h3>🎯 Objectif</h3>
-          <p>Plateforme collaborative connectant les acteurs de la chaîne agroalimentaire pour réduire le gaspillage alimentaire en facilitant la redistribution des produits invendus.</p>
-        </div>
-        <div class="project-features">
-          <h3>✨ Fonctionnalités</h3>
-          <ul>
-            <li>Authentification utilisateur avec rôles (admin, utilisateur, producteur, distributeur)</li>
-            <li>Tableau de bord analytique en temps réel avec statistiques et KPIs</li>
-            <li>Publication et gestion des produits alimentaires disponibles</li>
-            <li>Système de matching intelligent entre offreurs et demandeurs</li>
-            <li>Notifications automatiques et messagerie intégrée</li>
-            <li>Géolocalisation et cartographie des points de collecte/distribution</li>
-            <li>System de notation et feedback pour la confiance</li>
-          </ul>
-        </div>
-        <div class="project-impact">
-          <h3>🌍 Impact Social</h3>
-          <p>Réduction du gaspillage alimentaire, soutien aux populations vulnérables, promotion de l'économie circulaire.</p>
+          <h3>🎯 Description</h3>
+          <p>{{ featuredProject.description }}</p>
         </div>
       </div>
       <div class="project-links">
-        <a href="https://github.com/YANIXX35/food-waste-platform" class="project-link primary" target="_blank" rel="noopener">
-          <span>Voir la démo</span>
+        <a [href]="featuredProject.githubLink" class="project-link primary" target="_blank" rel="noopener">
+          <span>Voir sur GitHub</span>
           <span>→</span>
-        </a>
-        <a href="https://github.com/YANIXX35/" class="project-link secondary" target="_blank" rel="noopener">
-          <span>Code source</span>
-          <span>📁</span>
         </a>
       </div>
     </div>
@@ -78,7 +55,9 @@
 <section class="other-projects">
   <div class="container">
     <h2>Autres Réalisations</h2>
-    <div class="projects-grid">
+    
+    <!-- Anciens projets (cachés) -->
+    <div class="projects-grid old-projects" style="display: none;">
       <!-- Portfolio Full Stack -->
       <div class="project-card">
         <div class="project-header">
@@ -182,6 +161,50 @@
           </a>
         </div>
       </div>
+    </div>
+
+    <!-- Nouveaux projets avec pagination -->
+    <div class="projects-grid new-projects">
+      <div *ngFor="let project of paginatedProjects" class="project-card minimal">
+        <div class="project-header">
+          <h3>{{ project.title }}</h3>
+          <div class="project-tech">
+            <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <p>{{ project.shortDescription }}</p>
+        </div>
+        <div class="project-links">
+          <a [href]="project.githubLink" class="project-link primary" target="_blank" rel="noopener">
+            <span>Voir le projet</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" *ngIf="totalPages > 1">
+      <button (click)="previousPage()" [disabled]="currentPage === 1" class="pagination-btn prev">
+        ← Précédent
+      </button>
+      
+      <div class="page-indicator">
+        <span class="page-info">Page {{ currentPage }} sur {{ totalPages }}</span>
+        <div class="page-dots">
+          <span 
+            *ngFor="let page of [].constructor(totalPages); let i = index" 
+            class="page-dot"
+            [class.active]="currentPage === i + 1"
+            (click)="goToPage(i + 1)">
+          </span>
+        </div>
+      </div>
+      
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="pagination-btn next">
+        Suivant →
+      </button>
     </div>
   </div>
 </section>
