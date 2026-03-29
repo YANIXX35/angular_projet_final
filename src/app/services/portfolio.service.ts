@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, catchError, timeout } from 'rxjs/operators';
 
 export interface ContactForm {
   name: string;
@@ -40,13 +40,12 @@ export class PortfolioService {
     };
     
     return this.http.post(url, formData, httpOptions).pipe(
+      timeout(90000),
       tap(response => {
         console.log("✅ Réponse reçue du service:", response);
       }),
       catchError(error => {
         console.error("❌ Erreur dans le service:", error);
-        console.error("Status:", error.status);
-        console.error("Message:", error.message);
         return throwError(error);
       })
     );

@@ -55,9 +55,11 @@ export class Contact implements OnInit {
         if (error.status === 400) {
           alert("❌ Veuillez vérifier tous les champs du formulaire");
         } else if (error.status === 500) {
-          alert("❌ Erreur serveur. Veuillez réessayer plus tard");
+          alert("❌ Erreur serveur. Veuillez réessayer dans quelques instants.");
+        } else if (error.name === 'TimeoutError') {
+          alert("⏳ Le serveur met du temps à démarrer (hébergement gratuit). Veuillez réessayer dans 30 secondes.");
         } else {
-          alert("❌ Erreur lors de l'envoi. Vérifiez votre connexion");
+          alert("⏳ Le serveur est en cours de démarrage. Patientez 30 secondes et réessayez.");
         }
       }
     });
