@@ -179,6 +179,19 @@
   transform: translateY(-2px);
 }
 
+.project-link.disabled {
+  background: transparent;
+  color: rgba(255,255,255,0.3);
+  border: 1px dashed rgba(255,255,255,0.15);
+  cursor: default;
+  font-size: 0.85rem;
+}
+
+.project-link.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 /* Other Projects */
 .other-projects {
   padding: 4rem 0;

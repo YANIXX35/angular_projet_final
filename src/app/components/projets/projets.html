@@ -26,10 +26,16 @@
         </div>
       </div>
       <div class="project-links">
-        <a [href]="featuredProject.githubLink" class="project-link primary" target="_blank" rel="noopener">
-          <span>Voir sur GitHub</span>
-          <span>→</span>
+        <a [href]="featuredProject.githubLink" class="project-link secondary" target="_blank" rel="noopener" aria-label="Code source GitHub">
+          <span>⌥ GitHub</span>
         </a>
+        @if (featuredProject.liveLink) {
+          <a [href]="featuredProject.liveLink" class="project-link primary" target="_blank" rel="noopener" aria-label="Voir la démo en ligne">
+            <span>▶ Live Demo</span>
+          </a>
+        } @else {
+          <span class="project-link disabled" title="Démo en cours de déploiement">⏳ Demo bientôt</span>
+        }
       </div>
     </div>
   </div>
@@ -160,10 +166,16 @@
           <p>{{ project.shortDescription }}</p>
         </div>
         <div class="project-links">
-          <a [href]="project.githubLink" class="project-link primary" target="_blank" rel="noopener">
-            <span>Voir le projet</span>
-            <span>→</span>
+          <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener" aria-label="Code source GitHub">
+            <span>⌥ GitHub</span>
           </a>
+          @if (project.liveLink) {
+            <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener" aria-label="Voir la démo en ligne">
+              <span>▶ Live Demo</span>
+            </a>
+          } @else {
+            <span class="project-link disabled" title="Démo en cours de déploiement">⏳ Demo bientôt</span>
+          }
         </div>
       </div>
     </div>
