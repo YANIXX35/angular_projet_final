@@ -1,25 +1,26 @@
 <!-- Portfolio de Yanisse Kyliane Yao -->
-<!-- Navigation Moderne Sombre -->
-<nav>
-  <div class="container">
-    <div class="nav-container">
-      <a routerLink="/home" class="logo">YK Yao</a>
-      <ul class="nav-links">
-        <li><a routerLink="/home" routerLinkActive="router-link-active">Accueil</a></li>
-        <li><a routerLink="/about" routerLinkActive="router-link-active">À propos</a></li>
-        <li><a routerLink="/skills" routerLinkActive="router-link-active">Compétences</a></li>
-        <li><a routerLink="/projects" routerLinkActive="router-link-active">Projets</a></li>
-        <li><a routerLink="/contact" routerLinkActive="router-link-active">Contact</a></li>
-      </ul>
-      <!-- Menu Hamburger -->
-      <div class="menu-toggle" (click)="toggleMenu()">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </div>
+<nav [class.nav-open]="isMenuOpen">
+  <div class="nav-container">
+    <a routerLink="/home" class="logo" (click)="closeMenu()">YK Yao</a>
+    <ul class="nav-links" [class.menu-open]="isMenuOpen">
+      <li><a routerLink="/home" routerLinkActive="router-link-active" (click)="closeMenu()">Accueil</a></li>
+      <li><a routerLink="/about" routerLinkActive="router-link-active" (click)="closeMenu()">À propos</a></li>
+      <li><a routerLink="/skills" routerLinkActive="router-link-active" (click)="closeMenu()">Compétences</a></li>
+      <li><a routerLink="/projects" routerLinkActive="router-link-active" (click)="closeMenu()">Projets</a></li>
+      <li><a routerLink="/contact" routerLinkActive="router-link-active" (click)="closeMenu()">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
     </div>
   </div>
 </nav>
+
+<!-- Overlay pour fermer le menu en cliquant dehors -->
+@if (isMenuOpen) {
+  <div class="menu-overlay" (click)="closeMenu()"></div>
+}
 
 <!-- Main content -->
 <main>
