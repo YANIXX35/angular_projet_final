@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ScrollRevealService } from '../../services/scroll-reveal.service';
 
 @Component({
   selector: 'app-competences',
@@ -7,6 +8,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './competences.html',
   styleUrl: './competences.scss',
 })
-export class CompetencesComponent {
+export class CompetencesComponent implements AfterViewInit {
+  constructor(private scrollReveal: ScrollRevealService) {}
 
+  ngAfterViewInit() {
+    this.scrollReveal.init();
+  }
 }

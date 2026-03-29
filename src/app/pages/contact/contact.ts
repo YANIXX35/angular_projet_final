@@ -62,11 +62,13 @@ export class Contact implements OnInit {
         this.isLoading = false;
         this.successMessage = 'Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.';
         this.contactForm.reset();
+        setTimeout(() => this.successMessage = '', 5000);
       })
       .catch((error) => {
         console.error('Erreur EmailJS:', error);
         this.isLoading = false;
         this.errorMessage = 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer.';
+        setTimeout(() => this.errorMessage = '', 5000);
       });
   }
 }
