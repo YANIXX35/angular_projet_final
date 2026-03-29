@@ -11,6 +11,11 @@
   --accent-hover: #ff3d3d;
   --shadow: rgba(0, 0, 0, 0.3);
   --shadow-strong: rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(15, 23, 42, 0.95);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --nav-mobile-bg: rgba(15, 23, 42, 0.98);
+  --toggle-bg: rgba(255, 255, 255, 0.08);
+  --toggle-border: rgba(255, 255, 255, 0.12);
 }
 
 /* Thème clair */
@@ -25,6 +30,11 @@ body.light {
   --shadow: rgba(0, 0, 0, 0.08);
   --shadow-strong: rgba(0, 0, 0, 0.15);
   --hero-bg: linear-gradient(135deg, #e2e8f0, #f1f5f9);
+  --nav-bg: rgba(248, 250, 252, 0.95);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-mobile-bg: rgba(248, 250, 252, 0.98);
+  --toggle-bg: rgba(0, 0, 0, 0.06);
+  --toggle-border: rgba(0, 0, 0, 0.15);
   background: linear-gradient(135deg, #f8fafc, #e2e8f0);
   color: var(--text-primary);
 }
