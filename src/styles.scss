@@ -13,6 +13,21 @@
   --shadow-strong: rgba(0, 0, 0, 0.4);
 }
 
+/* Thème clair */
+body.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #e2e8f0;
+  --bg-tertiary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent: #e53e3e;
+  --accent-hover: #c53030;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-strong: rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color: var(--text-primary);
+}
+
 /* Reset et styles de base */
 * {
   margin: 0;

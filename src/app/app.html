@@ -9,6 +9,9 @@
       <li><a routerLink="/projects" routerLinkActive="router-link-active" (click)="closeMenu()">Projets</a></li>
       <li><a routerLink="/contact" routerLinkActive="router-link-active" (click)="closeMenu()">Contact</a></li>
     </ul>
+    <button class="theme-toggle" (click)="toggleTheme()" [title]="isDark ? 'Passer en mode clair' : 'Passer en mode sombre'" aria-label="Changer le thème">
+      {{ isDark ? '☀️' : '🌙' }}
+    </button>
     <div class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Menu">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
