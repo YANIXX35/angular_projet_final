@@ -305,6 +305,16 @@ img {
   animation: fadeInUp 0.8s ease-out;
 }
 
+/* Transition de page */
+router-outlet + * {
+  animation: pageFadeIn 0.2s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Animations au scroll */
 .scroll-reveal {
   opacity: 0;
