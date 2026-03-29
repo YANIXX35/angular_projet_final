@@ -509,7 +509,7 @@ footer {
 }
 
 .footer-section a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -521,8 +521,8 @@ footer {
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  color: var(--text-secondary);
 }
 
 /* Responsive */
