@@ -23,8 +23,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(private gsap: GsapAnimationService) {}
 
   ngAfterViewInit() {
-    this.gsap.animateHero();
-    this.gsap.animateProfileGlow();
     this.startTypewriter();
   }
 

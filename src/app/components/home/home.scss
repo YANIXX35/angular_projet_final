@@ -389,6 +389,28 @@
   }
 }
 
+/* Animations CSS entrée hero */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 15px rgba(255,107,107,0.2); }
+  50%       { box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 40px rgba(255,107,107,0.6); }
+}
+
+.hero-text h1    { animation: fadeInUp 0.8s ease 0.1s both; }
+.hero-text .subtitle { animation: fadeInUp 0.7s ease 0.3s both; }
+.hero-text p     { animation: fadeInUp 0.6s ease 0.5s both; }
+.stat-item       { animation: fadeInUp 0.5s ease 0.6s both; }
+.hero-buttons    { animation: fadeInUp 0.5s ease 0.7s both; }
+
 /* Image de profil moderne */
 .hero-image {
   display: flex;
@@ -406,6 +428,7 @@
   border: 3px solid var(--accent);
   position: relative;
   transition: all 0.4s ease;
+  animation: fadeInRight 0.9s ease 0.2s both, glowPulse 3s ease-in-out 1.5s infinite;
 }
 
 .profile-image-container:hover {
