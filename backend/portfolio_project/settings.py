@@ -7,7 +7,12 @@ SECRET_KEY = 'django-insecure-your-secret-key-here'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    'backend-django-9.onrender.com',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -97,6 +102,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:4200",
 ]
 
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 # Configuration Email SMTP
@@ -105,7 +114,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'kyliyanisse@gmail.com'
-EMAIL_HOST_PASSWORD = 'dvjs hckz cipc bbvw'
+EMAIL_HOST_PASSWORD = 'dvjshckzcipcbbvw'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Configuration des logs
