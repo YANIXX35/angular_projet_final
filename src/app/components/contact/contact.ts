@@ -1,6 +1,7 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 interface ContactForm {
   name: string;
@@ -13,7 +14,7 @@ interface ContactForm {
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
 })
