@@ -97,13 +97,20 @@
             }
           </div>
           
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             class="submit-btn"
             [disabled]="isLoading || contactForm.invalid"
           >
             {{ isLoading ? "Envoi en cours..." : "Envoyer le message" }}
           </button>
+
+          @if (successMessage) {
+            <div class="alert-success">✅ {{ successMessage }}</div>
+          }
+          @if (errorMessage) {
+            <div class="alert-error">❌ {{ errorMessage }}</div>
+          }
         </form>
       </div>
     </div>

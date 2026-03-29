@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PortfolioService, ContactForm } from '../../services/portfolio.service';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -12,24 +12,28 @@ import { PortfolioService, ContactForm } from '../../services/portfolio.service'
 export class Contact implements OnInit {
   contactForm!: FormGroup;
   isLoading = false;
+  successMessage = '';
+  errorMessage = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private portfolioService: PortfolioService
-  ) {}
+  private SERVICE_ID = 'service_c2pzzfl';
+  private TEMPLATE_ID = 'template_aq4yhax';
+  private PUBLIC_KEY = 'rVw39cskZdDT6H8-i';
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    emailjs.init(this.PUBLIC_KEY);
+
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
-      message: ['', Validators.required]
+      message: ['', Validators.required],
     });
   }
 
   submitForm() {
     if (this.contactForm.invalid) {
-      // Marquer tous les champs comme touched pour afficher les erreurs
       Object.keys(this.contactForm.controls).forEach(key => {
         this.contactForm.get(key)?.markAsTouched();
       });
@@ -37,31 +41,32 @@ export class Contact implements OnInit {
     }
 
     this.isLoading = true;
+    this.successMessage = '';
+    this.errorMessage = '';
 
-    this.portfolioService.sendMessage(this.contactForm.value).subscribe({
-      next: (response) => {
-        console.log("✅ Réponse API :", response);
+    const { name, email, subject, message } = this.contactForm.value;
+
+    const templateParams = {
+      name,
+      email,
+      subject,
+      message,
+      time: new Date().toLocaleString('fr-FR', {
+        dateStyle: 'long',
+        timeStyle: 'short',
+      }),
+    };
+
+    emailjs.send(this.SERVICE_ID, this.TEMPLATE_ID, templateParams)
+      .then(() => {
         this.isLoading = false;
-        if (response && response.status === 'success') {
-          alert("🎉 Votre message a été envoyé avec succès !");
-          this.contactForm.reset();
-        } else {
-          alert("⚠️ Réponse inattendue du serveur");
-        }
-      },
-      error: (error) => {
-        console.error("❌ Erreur API :", error);
+        this.successMessage = 'Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.';
+        this.contactForm.reset();
+      })
+      .catch((error) => {
+        console.error('Erreur EmailJS:', error);
         this.isLoading = false;
-        if (error.status === 400) {
-          alert("❌ Veuillez vérifier tous les champs du formulaire");
-        } else if (error.status === 500) {
-          alert("❌ Erreur serveur. Veuillez réessayer dans quelques instants.");
-        } else if (error.name === 'TimeoutError') {
-          alert("⏳ Le serveur met du temps à démarrer (hébergement gratuit). Veuillez réessayer dans 30 secondes.");
-        } else {
-          alert("⏳ Le serveur est en cours de démarrage. Patientez 30 secondes et réessayez.");
-        }
-      }
-    });
+        this.errorMessage = 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer.';
+      });
   }
 }
