@@ -26,7 +26,7 @@ export class ProjectService {
         shortDescription: 'Site de vente de véhicules en Django — catalogue et fiches produit',
         technologies: ['Django', 'Python', 'MySQL', 'HTML/CSS'],
         githubLink: 'https://github.com/YANIXX35/django_yanisse_final',
-        liveLink: '',
+        liveLink: 'https://django-yanisse-final.onrender.com/',
         image: 'assets/projects/vehicules.jpg',
       },
       {
