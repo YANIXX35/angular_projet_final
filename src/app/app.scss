@@ -250,6 +250,66 @@ main {
   margin-top: 70px;
 }
 
+/* ===== Floating nav icons ===== */
+.float-nav {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.float-nav-item {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: all 0.25s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.float-nav-item:hover {
+  background: rgba(255, 107, 107, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(1.12);
+}
+
+.float-nav-item.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Mode clair */
+body.light .float-nav-item {
+  background: rgba(226, 232, 240, 0.85);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(15, 23, 42, 0.45);
+}
+
+/* Cacher sur mobile */
+@media (max-width: 768px) {
+  .float-nav {
+    display: none;
+  }
+}
+
 /* Cacher les boutons mobile sur desktop */
 .mobile-social-divider,
 li:has(.mobile-social-btn) {
