@@ -88,13 +88,14 @@ nav {
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 600;
-  padding: 10px 18px;
+  padding: 10px 14px;
   border-radius: 10px;
   transition: all 0.3s ease;
   position: relative;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   border: 2px solid transparent;
   display: block;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -249,6 +250,12 @@ main {
   margin-top: 70px;
 }
 
+/* Cacher les boutons mobile sur desktop */
+.mobile-social-divider,
+li:has(.mobile-social-btn) {
+  display: none;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .nav-container {
@@ -262,6 +269,16 @@ main {
 
   .menu-toggle {
     display: flex;
+  }
+
+  /* Sur mobile : cacher nav-social desktop, montrer les boutons dans le menu */
+  .nav-social {
+    display: none;
+  }
+
+  .mobile-social-divider,
+  li:has(.mobile-social-btn) {
+    display: block;
   }
 
   .nav-links {
