@@ -10,9 +10,9 @@ export class ProjectService {
     return [
       {
         id: 1,
-        title: 'Bâtiment',
-        description: 'Site web de gestion de projets de construction pour une entreprise du secteur BTP. Suivi des chantiers, gestion des ressources et planning des travaux. Développé avec PHP pour le frontend et Django pour l\'API backend.',
-        shortDescription: 'Site web de gestion BTP — PHP + Django REST API',
+        title: 'Italia Construction',
+        description: 'Site web professionnel complet pour Italia Construction (Schiavone Group), entreprise de promotion immobilière et BTP basée à Grand-Bassam. Le site comprend un carousel hero, des pages À propos, Services, Projets (galerie photo/vidéo YouTube), Blog, Connexion et Contact. Développé avec PHP et Django REST API.',
+        shortDescription: 'Site web BTP complet — Italia Construction, Grand-Bassam',
         technologies: ['PHP', 'Django', 'MySQL', 'REST API'],
         githubLink: 'https://github.com/YANIXX35/batiment',
         liveLink: '',
