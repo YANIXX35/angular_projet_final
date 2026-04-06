@@ -8,7 +8,14 @@
       <li><a routerLink="/skills" routerLinkActive="router-link-active" (click)="closeMenu()">Compétences</a></li>
       <li><a routerLink="/projects" routerLinkActive="router-link-active" (click)="closeMenu()">Projets</a></li>
       <li><a routerLink="/contact" routerLinkActive="router-link-active" (click)="closeMenu()">Contact</a></li>
+      <li class="mobile-social-divider"></li>
+      <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener" class="mobile-social-btn linkedin" (click)="closeMenu()">LinkedIn</a></li>
+      <li><a href="https://wa.me/2250143875302" target="_blank" rel="noopener" class="mobile-social-btn whatsapp" (click)="closeMenu()">WhatsApp</a></li>
     </ul>
+    <div class="nav-social">
+      <a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener" class="nav-social-link linkedin">LinkedIn</a>
+      <a href="https://wa.me/2250143875302" target="_blank" rel="noopener" class="nav-social-link whatsapp">WhatsApp</a>
+    </div>
     <button class="theme-toggle" (click)="toggleTheme()" aria-label="Changer le thème">
       {{ isDark ? 'Mode clair' : 'Mode sombre' }}
     </button>
