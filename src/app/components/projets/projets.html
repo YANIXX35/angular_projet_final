@@ -20,6 +20,11 @@
         </div>
       </div>
       <div class="project-content">
+        @if (featuredProject.image) {
+          <div class="project-image">
+            <img [src]="featuredProject.image" [alt]="'Aperçu du projet ' + featuredProject.title" loading="lazy">
+          </div>
+        }
         <div class="project-description">
           <h3>🎯 Description</h3>
           <p>{{ featuredProject.description }}</p>

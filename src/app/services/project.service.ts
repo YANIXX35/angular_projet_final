@@ -16,6 +16,7 @@ export class ProjectService {
         technologies: ['PHP', 'Django', 'MySQL', 'REST API'],
         githubLink: 'https://github.com/YANIXX35/batiment',
         liveLink: '',
+        image: 'assets/projects/batiment.jpg',
         featured: true
       },
       {
@@ -26,6 +27,7 @@ export class ProjectService {
         technologies: ['Django', 'Python', 'MySQL', 'HTML/CSS'],
         githubLink: 'https://github.com/YANIXX35/django_yanisse_final',
         liveLink: '',
+        image: 'assets/projects/vehicules.jpg',
       },
       {
         id: 3,
@@ -35,6 +37,7 @@ export class ProjectService {
         technologies: ['Odoo', 'Python', 'XML', 'PostgreSQL'],
         githubLink: 'https://github.com/YANIXX35/odoo_yk',
         liveLink: '',
+        image: 'assets/projects/odoo.jpg',
       }
     ];
   }
