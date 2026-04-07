@@ -50,117 +50,8 @@
 <section class="other-projects">
   <div class="container">
     <h2>Autres Réalisations</h2>
-    
-    <!-- Anciens projets (cachés) -->
-    <div class="projects-grid old-projects" style="display: none;">
-      <!-- Portfolio Full Stack -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Portfolio Full Stack</h3>
-          <div class="project-tech">
-            <span class="tech-tag">Angular</span>
-            <span class="tech-tag">Django REST</span>
-            <span class="tech-tag">SMTP</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <p>Portfolio personnel moderne avec système de gestion de contenu dynamique, formulaire de contact SMTP, et routing Angular.</p>
-          <div class="project-highlights">
-            <span>🎨 Design moderne</span>
-            <span>📱 Responsive</span>
-            <span>⚡ Performant</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="/" class="project-link">
-            <span>Voir le projet</span>
-            <span>→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Application de Gestion de Tâches -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Application de Gestion de Tâches</h3>
-          <div class="project-tech">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">MongoDB</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <p>Application web de gestion de tâches avec drag & drop, notifications, et synchronisation multi-appareils.</p>
-          <div class="project-highlights">
-            <span>🔄 Temps réel</span>
-            <span>📊 Analytics</span>
-            <span>🔐 Sécurisé</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/YANIXX35/" target="_blank" rel="noopener" class="project-link">
-            <span>Voir la démo</span>
-            <span>→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Blog Platform -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Blog Platform</h3>
-          <div class="project-tech">
-            <span class="tech-tag">PHP</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">Bootstrap</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <p>Plateforme de blogging complète avec système de gestion, commentaires, et interface d'administration.</p>
-          <div class="project-highlights">
-            <span>✏️ Éditeur riche</span>
-            <span>💬 Commentaires</span>
-            <span>📈 Statistiques</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/YANIXX35/" target="_blank" rel="noopener" class="project-link">
-            <span>Voir le projet</span>
-            <span>→</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- E-commerce Platform -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>E-commerce Platform</h3>
-          <div class="project-tech">
-            <span class="tech-tag">Vue.js</span>
-            <span class="tech-tag">Laravel</span>
-            <span class="tech-tag">Stripe</span>
-          </div>
-        </div>
-        <div class="project-content">
-          <p>Plateforme e-commerce avec panier, paiement, gestion des produits, et tableau de bord administrateur.</p>
-          <div class="project-highlights">
-            <span>🛒 Panier</span>
-            <span>💳 Paiement</span>
-            <span>📦 Gestion stock</span>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/YANIXX35/" target="_blank" rel="noopener" class="project-link">
-            <span>Voir la démo</span>
-            <span>→</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Nouveaux projets avec pagination -->
-    <div class="projects-grid new-projects">
-      <div *ngFor="let project of paginatedProjects" class="project-card minimal">
+    <div class="projects-grid">
+      <div *ngFor="let project of otherProjects" class="project-card minimal">
         <div class="project-header">
           <h3>{{ project.title }}</h3>
           <div class="project-tech">
@@ -171,41 +62,18 @@
           <p>{{ project.shortDescription }}</p>
         </div>
         <div class="project-links">
-          <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener" aria-label="Code source GitHub">
+          <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener">
             <span>⌥ GitHub</span>
           </a>
           @if (project.liveLink) {
-            <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener" aria-label="Voir la démo en ligne">
+            <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener">
               <span>▶ Live Demo</span>
             </a>
           } @else {
-            <span class="project-link disabled" title="Démo en cours de déploiement">⏳ Demo bientôt</span>
+            <span class="project-link disabled">⏳ Demo bientôt</span>
           }
         </div>
       </div>
-    </div>
-
-    <!-- Pagination -->
-    <div class="pagination" *ngIf="totalPages > 1">
-      <button (click)="previousPage()" [disabled]="currentPage === 1" class="pagination-btn prev">
-        ← Précédent
-      </button>
-      
-      <div class="page-indicator">
-        <span class="page-info">Page {{ currentPage }} sur {{ totalPages }}</span>
-        <div class="page-dots">
-          <span 
-            *ngFor="let page of [].constructor(totalPages); let i = index" 
-            class="page-dot"
-            [class.active]="currentPage === i + 1"
-            (click)="goToPage(i + 1)">
-          </span>
-        </div>
-      </div>
-      
-      <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="pagination-btn next">
-        Suivant →
-      </button>
     </div>
   </div>
 </section>
