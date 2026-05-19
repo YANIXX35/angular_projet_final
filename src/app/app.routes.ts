@@ -8,26 +8,32 @@ export const routes: Routes = [
   },
   {
     path: 'home',
+    title: 'Kouassi Yao Yanisse Kyliane — Développeur Full Stack & Data-Analyst',
     loadComponent: () => import('./components/home/home').then(m => m.HomeComponent)
   },
   {
     path: 'about',
+    title: 'À Propos — Kouassi Yao Yanisse Kyliane',
     loadComponent: () => import('./components/apropos/apropos').then(m => m.AproposComponent)
   },
   {
     path: 'skills',
+    title: 'Compétences — Kouassi Yao Yanisse Kyliane',
     loadComponent: () => import('./components/competences/competences').then(m => m.CompetencesComponent)
   },
   {
     path: 'projects',
+    title: 'Projets — Kouassi Yao Yanisse Kyliane',
     loadComponent: () => import('./components/projets/projets').then(m => m.ProjetsComponent)
   },
   {
     path: 'experience',
+    title: 'Expérience & Formations — Kouassi Yao Yanisse Kyliane',
     loadComponent: () => import('./pages/experience/experience').then(m => m.ExperienceComponent)
   },
   {
     path: 'contact',
+    title: 'Contact — Kouassi Yao Yanisse Kyliane',
     loadComponent: () => import('./pages/contact/contact').then(m => m.Contact)
   },
   {
