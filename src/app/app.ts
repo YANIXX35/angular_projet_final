@@ -17,7 +17,14 @@ export class App implements OnInit {
     if (saved === 'light') {
       this.isDark = false;
       document.body.classList.add('light');
+    } else if (!saved) {
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (prefersLight) {
+        this.isDark = false;
+        document.body.classList.add('light');
+      }
     }
+    document.documentElement.removeAttribute('data-theme');
   }
 
   toggleMenu() {
