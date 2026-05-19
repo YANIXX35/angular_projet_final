@@ -16,7 +16,7 @@ export class ProjectService {
         technologies: ['JavaScript', 'APIs externes', 'Telegram API', 'Vercel'],
         githubLink: '',
         liveLink: 'https://bs-mailnotif-nine.vercel.app/',
-        image: 'assets/projects/mailnotif.jpg',
+        image: 'assets/projects/mailnotif.svg',
         featured: true
       },
       {
@@ -27,7 +27,7 @@ export class ProjectService {
         technologies: ['PHP', 'MySQL', 'HTML/CSS'],
         githubLink: 'https://github.com/YANIXX35/batiment',
         liveLink: '',
-        image: 'assets/projects/batiment.jpg',
+        image: 'assets/projects/batiment.svg',
       },
       {
         id: 3,
@@ -37,7 +37,7 @@ export class ProjectService {
         technologies: ['Django', 'Python', 'MySQL', 'HTML/CSS'],
         githubLink: 'https://github.com/YANIXX35/django_yanisse_final',
         liveLink: 'https://django-yanisse-final.onrender.com/',
-        image: 'assets/projects/vehicules.jpg',
+        image: 'assets/projects/vehicules.svg',
       },
       {
         id: 4,
@@ -47,7 +47,7 @@ export class ProjectService {
         technologies: ['Odoo', 'Python', 'XML', 'PostgreSQL'],
         githubLink: 'https://github.com/YANIXX35/odoo_yk',
         liveLink: '',
-        image: 'assets/projects/odoo.jpg',
+        image: 'assets/projects/odoo.svg',
       }
     ];
   }
