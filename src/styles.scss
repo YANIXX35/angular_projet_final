@@ -37,11 +37,12 @@
   --shadow-accent: 0 8px 30px rgba(255, 107, 107, 0.25);
 
   /* Navigation */
-  --nav-bg:        rgba(10, 14, 26, 0.90);
-  --nav-border:    rgba(255, 255, 255, 0.06);
-  --nav-mobile-bg: rgba(10, 14, 26, 0.98);
-  --toggle-bg:     rgba(255, 255, 255, 0.06);
-  --toggle-border: rgba(255, 255, 255, 0.10);
+  --nav-bg:         rgba(10, 14, 26, 0.90);
+  --nav-border:     rgba(255, 255, 255, 0.06);
+  --nav-mobile-bg:  rgba(10, 14, 26, 0.98);
+  --nav-item-hover: rgba(255, 255, 255, 0.06);
+  --toggle-bg:      rgba(255, 255, 255, 0.06);
+  --toggle-border:  rgba(255, 255, 255, 0.10);
 
   /* Easing & transitions */
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -84,11 +85,12 @@ body.light {
   --shadow-strong: 0 12px 48px rgba(0, 0, 0, 0.10);
   --shadow-accent: 0 8px 30px rgba(229, 62, 62, 0.12);
 
-  --nav-bg:        rgba(248, 250, 252, 0.92);
-  --nav-border:    rgba(0, 0, 0, 0.07);
-  --nav-mobile-bg: rgba(248, 250, 252, 0.98);
-  --toggle-bg:     rgba(0, 0, 0, 0.05);
-  --toggle-border: rgba(0, 0, 0, 0.12);
+  --nav-bg:         rgba(248, 250, 252, 0.92);
+  --nav-border:     rgba(0, 0, 0, 0.07);
+  --nav-mobile-bg:  rgba(248, 250, 252, 0.98);
+  --nav-item-hover: rgba(0, 0, 0, 0.05);
+  --toggle-bg:      rgba(0, 0, 0, 0.05);
+  --toggle-border:  rgba(0, 0, 0, 0.12);
 
   background: var(--bg-primary);
   color: var(--text-primary);
