@@ -11,9 +11,9 @@ import { GsapAnimationService } from '../../services/gsap-animation.service';
 export class HomeComponent implements AfterViewInit, OnDestroy {
   subtitleText = '';
   private phrases = [
-    'Développeur Web Junior',
-    'Étudiant en L3 Informatique',
-    'Full Stack Passionné',
+    'Développeur Full Stack',
+    'Data-Analyst IA',
+    'Étudiant L3 Informatique',
   ];
   private phraseIndex = 0;
   private charIndex = 0;
