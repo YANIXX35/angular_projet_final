@@ -2,8 +2,8 @@
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <h1>Construisons le<br><span class="accent-word">prochain projet.</span></h1>
-      <p>Je prends quelques projets par trimestre. Décris-moi ton projet — je te réponds sous 24 h.</p>
+      <h1>{{ T.contact.heroTitle }}<br><span class="accent-word">{{ T.contact.heroAccent }}</span></h1>
+      <p>{{ T.contact.heroSub }}</p>
     </div>
   </div>
 </section>
@@ -19,28 +19,28 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label>TON NOM</label>
-              <input type="text" formControlName="name" placeholder="Kouassi Yao">
+              <label>{{ T.contact.labelName }}</label>
+              <input type="text" formControlName="name" [placeholder]="T.contact.placeholderName">
               @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
-                <span class="error-msg">Champ requis</span>
+                <span class="error-msg">{{ T.contact.errRequired }}</span>
               }
             </div>
             <div class="form-group">
-              <label>EMAIL</label>
-              <input type="email" formControlName="email" placeholder="toi@gmail.com">
+              <label>{{ T.contact.labelEmail }}</label>
+              <input type="email" formControlName="email" [placeholder]="T.contact.placeholderEmail">
               @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
-                <span class="error-msg">Email invalide</span>
+                <span class="error-msg">{{ T.contact.errEmail }}</span>
               }
             </div>
           </div>
 
           <div class="form-group">
-            <label>ENTREPRISE</label>
-            <input type="text" formControlName="company" placeholder="Acme Inc. (optionnel)">
+            <label>{{ T.contact.labelCompany }}</label>
+            <input type="text" formControlName="company" [placeholder]="T.contact.placeholderCompany">
           </div>
 
           <div class="form-group">
-            <label>TYPE DE PROJET</label>
+            <label>{{ T.contact.labelType }}</label>
             <div class="type-chips">
               @for (type of projectTypes; track type) {
                 <button
@@ -54,14 +54,14 @@
           </div>
 
           <div class="form-group">
-            <label>BRIEF</label>
+            <label>{{ T.contact.labelBrief }}</label>
             <textarea
               formControlName="brief"
               rows="5"
-              placeholder="Tu construis quoi, sur quel timeline, avec quel budget ?"
+              [placeholder]="T.contact.placeholderBrief"
             ></textarea>
             @if (contactForm.get('brief')?.invalid && contactForm.get('brief')?.touched) {
-              <span class="error-msg">Dis-moi en quoi je peux t'aider</span>
+              <span class="error-msg">{{ T.contact.errBrief }}</span>
             }
           </div>
 
@@ -73,9 +73,9 @@
           }
 
           <div class="form-footer">
-            <span class="no-spam">Pas de spam, pas de liste. Juste une vraie réponse.</span>
+            <span class="no-spam">{{ T.contact.noSpam }}</span>
             <button type="submit" class="submit-btn" [disabled]="isLoading">
-              {{ isLoading ? 'Envoi...' : 'Envoyer →' }}
+              {{ isLoading ? T.contact.btnSending : T.contact.btnSend }}
             </button>
           </div>
 
@@ -146,8 +146,8 @@
         </a>
 
         <div class="response-card">
-          <span class="info-label">TEMPS DE RÉPONSE</span>
-          <p>Sous 24 heures, du lundi au samedi — fuseau horaire GMT (UTC+0).</p>
+          <span class="info-label">{{ T.contact.labelResponseTime }}</span>
+          <p>{{ T.contact.responseTimeText }}</p>
         </div>
 
       </div>
@@ -161,26 +161,26 @@
     <div class="footer-content">
       <div class="footer-section">
         <h4>Kouassi Yao Yanisse Kyliane</h4>
-        <p>Développeur Web Full Stack passionné par l'innovation numérique</p>
+        <p>{{ T.footer.tagline }}</p>
       </div>
       <div class="footer-section">
-        <h4>Navigation</h4>
+        <h4>{{ T.footer.nav }}</h4>
         <ul>
-          <li><a routerLink="/">Accueil</a></li>
-          <li><a routerLink="/about">À propos</a></li>
-          <li><a routerLink="/skills">Compétences</a></li>
-          <li><a routerLink="/experience">Expérience</a></li>
-          <li><a routerLink="/projects">Projets</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/">{{ T.nav.home }}</a></li>
+          <li><a routerLink="/about">{{ T.nav.about }}</a></li>
+          <li><a routerLink="/skills">{{ T.nav.skills }}</a></li>
+          <li><a routerLink="/experience">{{ T.nav.experience }}</a></li>
+          <li><a routerLink="/projects">{{ T.nav.projects }}</a></li>
+          <li><a routerLink="/contact">{{ T.nav.contact }}</a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h4>Contact</h4>
+        <h4>{{ T.footer.contact }}</h4>
         <p>kyliyanisse@gmail.com</p>
         <p>Grand-Bassam, Côte d'Ivoire</p>
       </div>
       <div class="footer-section">
-        <h4>Réseaux</h4>
+        <h4>{{ T.footer.socials }}</h4>
         <ul>
           <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href="https://github.com/YANIXX35/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -188,7 +188,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. Tous droits réservés. | Développé avec ❤️ et Angular</p>
+      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. {{ T.footer.copyright }}</p>
     </div>
   </div>
 </footer>

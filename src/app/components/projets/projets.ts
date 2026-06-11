@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
+import { LanguageService } from '../../services/language.service';
+import { translations } from '../../translations/translations';
 
 @Component({
   selector: 'app-projets',
@@ -12,12 +14,20 @@ import { ProjectService } from '../../services/project.service';
   styleUrl: './projets.scss',
 })
 export class ProjetsComponent implements OnInit {
-  
   projects: Project[] = [];
   featuredProject: Project | null = null;
   otherProjects: Project[] = [];
 
-  constructor(private projectService: ProjectService) {}
+  private projectService = inject(ProjectService);
+  ls = inject(LanguageService);
+  get T() { return translations[this.ls.lang()]; }
+
+  desc(p: Project): string {
+    return (this.ls.lang() === 'en' && p.description_en) ? p.description_en : p.description;
+  }
+  shortDesc(p: Project): string {
+    return (this.ls.lang() === 'en' && p.shortDescription_en) ? p.shortDescription_en : p.shortDescription;
+  }
 
   ngOnInit() {
     this.projects = this.projectService.getProjects();

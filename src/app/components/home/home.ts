@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, inject, effect } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GsapAnimationService } from '../../services/gsap-animation.service';
+import { LanguageService } from '../../services/language.service';
+import { translations } from '../../translations/translations';
 
 @Component({
   selector: 'app-home',
@@ -10,25 +12,36 @@ import { GsapAnimationService } from '../../services/gsap-animation.service';
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   subtitleText = '';
-  private phrases = [
-    'Développeur Full Stack',
-    'Data-Analyst IA',
-    'Étudiant L3 Informatique',
-  ];
   private phraseIndex = 0;
   private charIndex = 0;
   private isDeleting = false;
   private typeInterval: any;
+  private viewInitialized = false;
 
-  constructor(private gsap: GsapAnimationService) {}
+  private gsap = inject(GsapAnimationService);
+  ls = inject(LanguageService);
+  get T() { return translations[this.ls.lang()]; }
+
+  constructor() {
+    effect(() => {
+      const _lang = this.ls.lang();
+      clearTimeout(this.typeInterval);
+      this.subtitleText = '';
+      this.phraseIndex = 0;
+      this.charIndex = 0;
+      this.isDeleting = false;
+      if (this.viewInitialized) this.startTypewriter();
+    });
+  }
 
   ngAfterViewInit() {
+    this.viewInitialized = true;
     this.startTypewriter();
   }
 
   private startTypewriter() {
     const tick = () => {
-      const current = this.phrases[this.phraseIndex];
+      const current = this.T.home.phrases[this.phraseIndex];
       if (this.isDeleting) {
         this.subtitleText = current.substring(0, this.charIndex - 1);
         this.charIndex--;
@@ -44,7 +57,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         this.isDeleting = true;
       } else if (this.isDeleting && this.charIndex === 0) {
         this.isDeleting = false;
-        this.phraseIndex = (this.phraseIndex + 1) % this.phrases.length;
+        this.phraseIndex = (this.phraseIndex + 1) % this.T.home.phrases.length;
         delay = 400;
       }
 

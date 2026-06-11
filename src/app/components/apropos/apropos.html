@@ -2,8 +2,8 @@
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <h1>À propos de moi</h1>
-      <p>Découvrez mon parcours, mes motivations et ma vision du développement web</p>
+      <h1>{{ T.about.heroTitle }}</h1>
+      <p>{{ T.about.heroSub }}</p>
     </div>
   </div>
 </section>
@@ -13,16 +13,10 @@
   <div class="container">
     <div class="story-grid">
       <div class="story-text">
-        <h2>Mon Histoire</h2>
-        <p>
-          Je suis Kouassi Yao Yanisse Kyliane, étudiant passionné en Licence 3 Informatique à Abidjan. Mon parcours dans le développement web a commencé par une curiosité insatiable pour comprendre comment les applications que nous utilisons quotidiennement fonctionnent.
-        </p>
-        <p>
-          Cette curiosité s'est rapidement transformée en passion lorsque j'ai commencé à créer mes premières applications web. Chaque ligne de code était une nouvelle opportunité d'apprendre et chaque projet achevé était une victoire qui renforçait ma détermination.
-        </p>
-        <p>
-          Aujourd'hui, je me spécialise en développement full-stack, combinant créativité frontend et robustesse backend pour créer des solutions numériques complètes et performantes.
-        </p>
+        <h2>{{ T.about.storyTitle }}</h2>
+        <p>{{ T.about.storyP1 }}</p>
+        <p>{{ T.about.storyP2 }}</p>
+        <p>{{ T.about.storyP3 }}</p>
       </div>
       <div class="story-image">
         <img src="assets/profile.jpg" alt="Kouassi Yao Yanisse Kyliane" class="profile-photo">
@@ -34,27 +28,27 @@
 <!-- Highlights Section -->
 <section class="highlights scroll-reveal">
   <div class="container">
-    <h2>Mes Points Forts</h2>
+    <h2>{{ T.about.highlightsTitle }}</h2>
     <div class="highlights-grid">
       <div class="highlight-card">
         <div class="highlight-icon">🚀</div>
-        <h3>Innovation Technologique</h3>
-        <p>Toujours à la recherche des dernières tendances et meilleures pratiques en développement web moderne.</p>
+        <h3>{{ T.about.h1Title }}</h3>
+        <p>{{ T.about.h1Desc }}</p>
       </div>
       <div class="highlight-card">
         <div class="highlight-icon">💡</div>
-        <h3>Résolution de Problèmes</h3>
-        <p>Approche analytique pour transformer des défis complexes en solutions élégantes et efficaces.</p>
+        <h3>{{ T.about.h2Title }}</h3>
+        <p>{{ T.about.h2Desc }}</p>
       </div>
       <div class="highlight-card">
         <div class="highlight-icon">🤝</div>
-        <h3>Collaboration</h3>
-        <p>Esprit d'équipe développé à travers divers projets académiques et personnels.</p>
+        <h3>{{ T.about.h3Title }}</h3>
+        <p>{{ T.about.h3Desc }}</p>
       </div>
       <div class="highlight-card">
         <div class="highlight-icon">📚</div>
-        <h3>Apprentissage Continu</h3>
-        <p>Curiosité intellectuelle et engagement dans l'auto-formation constante.</p>
+        <h3>{{ T.about.h4Title }}</h3>
+        <p>{{ T.about.h4Desc }}</p>
       </div>
     </div>
   </div>
@@ -63,41 +57,41 @@
 <!-- Journey Section -->
 <section class="journey scroll-reveal">
   <div class="container">
-    <h2>Mon Parcours</h2>
+    <h2>{{ T.about.journeyTitle }}</h2>
     <div class="journey-timeline">
       <div class="timeline-item">
-        <div class="timeline-year">2023</div>
+        <div class="timeline-year">{{ T.about.j1Year }}</div>
         <div class="timeline-content">
-          <h3>Baccalauréat série D</h3>
-          <p>Obtention du Baccalauréat série D au Collège Adventiste d'Abidjan. Une étape clé qui marque la fin du lycée et ouvre la voie vers les études supérieures en informatique.</p>
+          <h3>{{ T.about.j1Title }}</h3>
+          <p>{{ T.about.j1Desc }}</p>
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">2024 — 2025</div>
+        <div class="timeline-year">{{ T.about.j2Year }}</div>
         <div class="timeline-content">
-          <h3>Découverte du Web & Spécialisation PHP</h3>
-          <p>Apprentissage autodidacte de HTML, CSS et JavaScript. Création des premières pages web, puis spécialisation progressive en PHP et MySQL pour le développement backend. Réalisation des premiers projets complets avec base de données.</p>
+          <h3>{{ T.about.j2Title }}</h3>
+          <p>{{ T.about.j2Desc }}</p>
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">2026</div>
+        <div class="timeline-year">{{ T.about.j3Year }}</div>
         <div class="timeline-content">
-          <h3>Licence 3 Informatique — Institut Ivoirien de Technologie</h3>
-          <p>Entrée en Licence 3 spécialité Développeur Full Stack / Data Analyst à l'Institut Ivoirien de Technologie (VITIB, Grand-Bassam). Montée en compétences sur Angular, Django, Laravel et les API REST. Développement de projets professionnels concrets dont un site BTP et une application de vente de véhicules.</p>
+          <h3>{{ T.about.j3Title }}</h3>
+          <p>{{ T.about.j3Desc }}</p>
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">01/2026 — 06/2026</div>
+        <div class="timeline-year">{{ T.about.j4Year }}</div>
         <div class="timeline-content">
-          <h3>WE CODE — Data Analyst IA (Epitech, Bingerville)</h3>
-          <p>Formation intensive à Epitech Coding Academy axée sur l'analyse de données et l'intelligence artificielle. Python pour la data science, machine learning avec scikit-learn, Power BI, visualisation de données et réseaux de neurones. Double compétence développeur web / data.</p>
+          <h3>{{ T.about.j4Title }}</h3>
+          <p>{{ T.about.j4Desc }}</p>
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">03/2026 — 05/2026</div>
+        <div class="timeline-year">{{ T.about.j5Year }}</div>
         <div class="timeline-content">
-          <h3>Projet personnel — Gestion de Mail</h3>
-          <p>Développement d'une application web de notification d'e-mails permettant de recevoir ses messages directement sur Telegram et WhatsApp. La partie Telegram est déployée en production sur Vercel. Ce projet démontre la maîtrise des APIs externes et du déploiement en production.</p>
+          <h3>{{ T.about.j5Title }}</h3>
+          <p>{{ T.about.j5Desc }}</p>
         </div>
       </div>
     </div>
@@ -107,27 +101,27 @@
 <!-- Values Section -->
 <section class="values">
   <div class="container">
-    <h2>Mes Valeurs</h2>
+    <h2>{{ T.about.valuesTitle }}</h2>
     <div class="values-grid">
       <div class="value-card">
         <div class="value-icon">🎯</div>
-        <h3>Excellence</h3>
-        <p>Je m'efforce de livrer un travail de la plus haute qualité dans chaque projet.</p>
+        <h3>{{ T.about.v1Title }}</h3>
+        <p>{{ T.about.v1Desc }}</p>
       </div>
       <div class="value-card">
         <div class="value-icon">🌍</div>
-        <h3>Impact Social</h3>
-        <p>Je crois que la technologie peut et doit contribuer à résoudre des problèmes réels.</p>
+        <h3>{{ T.about.v2Title }}</h3>
+        <p>{{ T.about.v2Desc }}</p>
       </div>
       <div class="value-card">
         <div class="value-icon">🔧</div>
-        <h3>Innovation</h3>
-        <p>Je cherche constamment à innover et à repousser les limites du possible.</p>
+        <h3>{{ T.about.v3Title }}</h3>
+        <p>{{ T.about.v3Desc }}</p>
       </div>
       <div class="value-card">
         <div class="value-icon">🤝</div>
-        <h3>Intégrité</h3>
-        <p>L'honnêteté et la transparence sont les fondations de mon travail.</p>
+        <h3>{{ T.about.v4Title }}</h3>
+        <p>{{ T.about.v4Desc }}</p>
       </div>
     </div>
   </div>
@@ -137,11 +131,11 @@
 <section class="cta">
   <div class="container">
     <div class="cta-content">
-      <h2>Intéressé par une collaboration ?</h2>
-      <p>Je suis toujours ouvert à discuter de nouveaux projets et opportunités professionnelles.</p>
+      <h2>{{ T.about.ctaTitle }}</h2>
+      <p>{{ T.about.ctaDesc }}</p>
       <div class="cta-buttons">
-        <a routerLink="/contact" class="cta-button primary">Me contacter</a>
-        <a routerLink="/projects" class="cta-button secondary">Voir mes projets</a>
+        <a routerLink="/contact" class="cta-button primary">{{ T.about.ctaContact }}</a>
+        <a routerLink="/projects" class="cta-button secondary">{{ T.about.ctaProjects }}</a>
       </div>
     </div>
   </div>
@@ -150,23 +144,17 @@
 <!-- CV Section -->
 <section class="cv-section">
   <div class="container">
-    <h2>Mon CV</h2>
-    <p>Consultez mon CV directement en ligne ou téléchargez-le.</p>
-    
+    <h2>{{ T.about.cvTitle }}</h2>
+    <p>{{ T.about.cvDesc }}</p>
     <div class="cv-preview">
-      <iframe 
-        src="assets/cv/KOUASSI-YAO-YANISSE-KYLIANE-1.pdf" 
-        width="100%" 
-        height="500px">
-      </iframe>
+      <iframe src="assets/cv/KOUASSI-YAO-YANISSE-KYLIANE-1.pdf" width="100%" height="500px"></iframe>
     </div>
-    
     <div class="cv-buttons">
       <a href="assets/cv/KOUASSI-YAO-YANISSE-KYLIANE-1.pdf" target="_blank" class="btn-view">
-        <span>👁️</span> Voir en plein écran
+        <span>👁️</span> {{ T.about.cvView }}
       </a>
       <a href="assets/cv/KOUASSI-YAO-YANISSE-KYLIANE-1.pdf" download class="btn-download">
-        <span>⬇️</span> Télécharger mon CV
+        <span>⬇️</span> {{ T.about.cvDownload }}
       </a>
     </div>
   </div>
@@ -178,34 +166,33 @@
     <div class="footer-content">
       <div class="footer-section">
         <h4>Kouassi Yao Yanisse Kyliane</h4>
-        <p>Développeur Web Full Stack passionné par l'innovation numérique</p>
+        <p>{{ T.footer.tagline }}</p>
       </div>
       <div class="footer-section">
-        <h4>Navigation Rapide</h4>
+        <h4>{{ T.footer.navQuick }}</h4>
         <ul>
-          <li><a routerLink="/">Accueil</a></li>
-          <li><a routerLink="/about">À propos</a></li>
-          <li><a routerLink="/skills">Compétences</a></li>
-          <li><a routerLink="/projects">Projets</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/">{{ T.nav.home }}</a></li>
+          <li><a routerLink="/about">{{ T.nav.about }}</a></li>
+          <li><a routerLink="/skills">{{ T.nav.skills }}</a></li>
+          <li><a routerLink="/projects">{{ T.nav.projects }}</a></li>
+          <li><a routerLink="/contact">{{ T.nav.contact }}</a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h4>Contact</h4>
+        <h4>{{ T.footer.contact }}</h4>
         <p>📧 kyliyanisse@gmail.com</p>
         <p>📍 Grand-Bassam, Côte d'Ivoire</p>
       </div>
       <div class="footer-section">
-        <h4>Réseaux Sociaux</h4>
+        <h4>{{ T.footer.socials }}</h4>
         <ul>
-          <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Kouassi Yao Yanisse Kyliane">LinkedIn</a></li>
-          <li><a href="https://github.com/YANIXX35/" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub de Kouassi Yao Yanisse Kyliane">GitHub</a></li>
-          
+          <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/YANIXX35/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. Tous droits réservés. | Développé avec ❤️ et Angular</p>
+      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. {{ T.footer.copyright }}</p>
     </div>
   </div>
 </footer>

@@ -4,25 +4,25 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1>KOUASSI YAO<br>YANISSE KYLIANE</h1>
-        <div class="subtitle">Développeur Full Stack | Data-Analyst · Étudiant L3 Informatique</div>
-        <p>Étudiant en Licence 3 Informatique (VITIB, Grand-Bassam) passionné par le développement web et l'analyse de données. Compétences en PHP, Laravel, Angular, JavaScript, Python et MySQL. À la recherche d'une opportunité de stage ou d'alternance.</p>
+        <div class="subtitle">{{ subtitleText }}</div>
+        <p>{{ T.home.intro }}</p>
         <div class="hero-stats">
           <div class="stat-item">
             <span class="stat-number">3+</span>
-            <span class="stat-label">Ans de pratique</span>
+            <span class="stat-label">{{ T.home.statYears }}</span>
           </div>
           <div class="stat-item">
             <span class="stat-number">4+</span>
-            <span class="stat-label">Projets livrés</span>
+            <span class="stat-label">{{ T.home.statProjects }}</span>
           </div>
           <div class="stat-item">
             <span class="stat-number">L3</span>
-            <span class="stat-label">Full Stack / Data</span>
+            <span class="stat-label">{{ T.home.statLevel }}</span>
           </div>
         </div>
         <div class="hero-buttons">
-          <a routerLink="/about" class="cta-button primary">À propos</a>
-          <a routerLink="/projects" class="cta-button secondary">Voir mes projets</a>
+          <a routerLink="/about" class="cta-button primary">{{ T.home.btnAbout }}</a>
+          <a routerLink="/projects" class="cta-button secondary">{{ T.home.btnProjects }}</a>
         </div>
       </div>
       <div class="hero-image">
@@ -40,26 +40,26 @@
     <div class="footer-content">
       <div class="footer-section">
         <h4>Kouassi Yao Yanisse Kyliane</h4>
-        <p>Développeur Web Full Stack passionné par l'innovation numérique</p>
+        <p>{{ T.footer.tagline }}</p>
       </div>
       <div class="footer-section">
-        <h4>Navigation</h4>
+        <h4>{{ T.footer.nav }}</h4>
         <ul>
-          <li><a routerLink="/home">Accueil</a></li>
-          <li><a routerLink="/about">À propos</a></li>
-          <li><a routerLink="/skills">Compétences</a></li>
-          <li><a routerLink="/projects">Projets</a></li>
-          <li><a routerLink="/experience">Expérience</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/home">{{ T.nav.home }}</a></li>
+          <li><a routerLink="/about">{{ T.nav.about }}</a></li>
+          <li><a routerLink="/skills">{{ T.nav.skills }}</a></li>
+          <li><a routerLink="/projects">{{ T.nav.projects }}</a></li>
+          <li><a routerLink="/experience">{{ T.nav.experience }}</a></li>
+          <li><a routerLink="/contact">{{ T.nav.contact }}</a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h4>Contact</h4>
+        <h4>{{ T.footer.contact }}</h4>
         <p>📧 kyliyanisse@gmail.com</p>
         <p>📍 Grand-Bassam, Côte d'Ivoire</p>
       </div>
       <div class="footer-section">
-        <h4>Réseaux Sociaux</h4>
+        <h4>{{ T.footer.socials }}</h4>
         <ul>
           <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href="https://github.com/YANIXX35/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. Tous droits réservés. | Développé avec ❤️ et Angular</p>
+      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. {{ T.footer.copyright }}</p>
     </div>
   </div>
 </footer>

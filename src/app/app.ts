@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { LanguageService } from './services/language.service';
+import { translations } from './translations/translations';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,9 @@ export class App implements OnInit {
   title = 'yao';
   isMenuOpen = false;
   isDark = true;
+
+  ls = inject(LanguageService);
+  get T() { return translations[this.ls.lang()]; }
 
   ngOnInit() {
     const saved = localStorage.getItem('theme');
@@ -27,13 +32,8 @@ export class App implements OnInit {
     document.documentElement.removeAttribute('data-theme');
   }
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
-  closeMenu() {
-    this.isMenuOpen = false;
-  }
+  toggleMenu() { this.isMenuOpen = !this.isMenuOpen; }
+  closeMenu() { this.isMenuOpen = false; }
 
   toggleTheme() {
     this.isDark = !this.isDark;
@@ -45,4 +45,6 @@ export class App implements OnInit {
       localStorage.setItem('theme', 'light');
     }
   }
+
+  toggleLang() { this.ls.toggle(); }
 }

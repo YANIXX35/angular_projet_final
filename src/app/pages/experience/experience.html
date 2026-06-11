@@ -1,15 +1,15 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <h1>Expériences & Formations</h1>
-    <p>Mon parcours professionnel, académique et mes certifications</p>
+    <h1>{{ T.experience.heroTitle }}</h1>
+    <p>{{ T.experience.heroSub }}</p>
   </div>
 </section>
 
 <!-- Expériences -->
 <section class="section scroll-reveal">
   <div class="container">
-    <h2 class="section-title"><span class="accent">◆</span> Expériences</h2>
+    <h2 class="section-title"><span class="accent">◆</span> {{ T.experience.expTitle }}</h2>
 
     <div class="timeline">
 
@@ -17,14 +17,14 @@
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <div class="timeline-header">
-            <h3>Développeur — Gestion de Mail (Notifications Telegram & WhatsApp)</h3>
-            <span class="badge">03/2026 — 05/2026</span>
+            <h3>{{ T.experience.e1Title }}</h3>
+            <span class="badge">{{ T.experience.e1Date }}</span>
           </div>
-          <p class="company">Projet personnel · Grand-Bassam, Côte d'Ivoire</p>
+          <p class="company">{{ T.experience.e1Company }}</p>
           <ul>
-            <li>Développement d'une application web de notification d'e-mails vers Telegram et WhatsApp</li>
-            <li>Intégration de la Telegram API — déployé en production sur Vercel</li>
-            <li>Intégration WhatsApp en cours de développement</li>
+            <li>{{ T.experience.e1b1 }}</li>
+            <li>{{ T.experience.e1b2 }}</li>
+            <li>{{ T.experience.e1b3 }}</li>
           </ul>
           <div class="tech-tags">
             <span>JavaScript</span><span>APIs externes</span><span>Telegram API</span><span>Vercel</span>
@@ -36,14 +36,14 @@
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <div class="timeline-header">
-            <h3>Développeur Web — Projet BTP (Italia Construction)</h3>
-            <span class="badge">10/2025 — 12/2025</span>
+            <h3>{{ T.experience.e2Title }}</h3>
+            <span class="badge">{{ T.experience.e2Date }}</span>
           </div>
-          <p class="company">Projet académique · Grand-Bassam, Côte d'Ivoire</p>
+          <p class="company">{{ T.experience.e2Company }}</p>
           <ul>
-            <li>Développement d'un site web pour Italia Construction, entreprise du secteur BTP</li>
-            <li>Page de présentation de l'entreprise et module de gestion de stock</li>
-            <li>Gestion de base de données MySQL : inventaire et suivi des ressources</li>
+            <li>{{ T.experience.e2b1 }}</li>
+            <li>{{ T.experience.e2b2 }}</li>
+            <li>{{ T.experience.e2b3 }}</li>
           </ul>
           <div class="tech-tags">
             <span>PHP</span><span>MySQL</span><span>HTML/CSS</span>
@@ -55,14 +55,14 @@
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <div class="timeline-header">
-            <h3>Développeur Backend — Application Vente de Véhicules</h3>
-            <span class="badge">2024 — 2025</span>
+            <h3>{{ T.experience.e3Title }}</h3>
+            <span class="badge">{{ T.experience.e3Date }}</span>
           </div>
-          <p class="company">Projet académique · Abidjan, Côte d'Ivoire</p>
+          <p class="company">{{ T.experience.e3Company }}</p>
           <ul>
-            <li>Développement d'une application web complète de vente de véhicules avec Django</li>
-            <li>Mise en place d'un catalogue, fiches détaillées, système de recherche et filtres avancés</li>
-            <li>Interface d'administration et gestion des utilisateurs</li>
+            <li>{{ T.experience.e3b1 }}</li>
+            <li>{{ T.experience.e3b2 }}</li>
+            <li>{{ T.experience.e3b3 }}</li>
           </ul>
           <div class="tech-tags">
             <span>Django</span><span>Python</span><span>MySQL</span><span>HTML/CSS</span>
@@ -74,14 +74,14 @@
         <div class="timeline-dot"></div>
         <div class="timeline-body">
           <div class="timeline-header">
-            <h3>Développeur Module ERP — Odoo</h3>
-            <span class="badge">2025</span>
+            <h3>{{ T.experience.e4Title }}</h3>
+            <span class="badge">{{ T.experience.e4Date }}</span>
           </div>
-          <p class="company">Projet académique · Abidjan, Côte d'Ivoire</p>
+          <p class="company">{{ T.experience.e4Company }}</p>
           <ul>
-            <li>Développement d'un module personnalisé pour le système ERP Odoo</li>
-            <li>Intégration de fonctionnalités métier spécifiques et reports personnalisés</li>
-            <li>Automatisation des processus d'entreprise via Python et XML</li>
+            <li>{{ T.experience.e4b1 }}</li>
+            <li>{{ T.experience.e4b2 }}</li>
+            <li>{{ T.experience.e4b3 }}</li>
           </ul>
           <div class="tech-tags">
             <span>Odoo</span><span>Python</span><span>XML</span><span>PostgreSQL</span>
@@ -96,7 +96,7 @@
 <!-- Formations -->
 <section class="section alt scroll-reveal">
   <div class="container">
-    <h2 class="section-title"><span class="accent">◆</span> Formations</h2>
+    <h2 class="section-title"><span class="accent">◆</span> {{ T.experience.eduTitle }}</h2>
 
     <div class="formations-grid">
 
@@ -104,11 +104,11 @@
         <div class="formation-icon">🎓</div>
         <div class="formation-body">
           <div class="formation-header">
-            <h3>Licence 3 Informatique — Full Stack / Data Analyst</h3>
-            <span class="badge current">En cours — 2026</span>
+            <h3>{{ T.experience.edu1Title }}</h3>
+            <span class="badge current">{{ T.experience.edu1Badge }}</span>
           </div>
-          <p class="school">Institut Ivoirien de Technologie (VITIB) · Grand-Bassam, Côte d'Ivoire</p>
-          <p>Formation approfondie en développement web full stack et data analyse. Maîtrise d'Angular, Django, PHP, Laravel, les API REST et les architectures modernes d'applications web.</p>
+          <p class="school">{{ T.experience.edu1School }}</p>
+          <p>{{ T.experience.edu1Desc }}</p>
           <div class="tech-tags">
             <span>Angular</span><span>Django</span><span>PHP</span><span>Laravel</span><span>REST API</span><span>SQL</span>
           </div>
@@ -119,11 +119,11 @@
         <div class="formation-icon">🤖</div>
         <div class="formation-body">
           <div class="formation-header">
-            <h3>WE CODE — Data Analyst IA</h3>
-            <span class="badge current">01/2026 — 06/2026</span>
+            <h3>{{ T.experience.edu2Title }}</h3>
+            <span class="badge current">{{ T.experience.edu2Badge }}</span>
           </div>
-          <p class="school">Epitech Coding Academy · Bingerville, Côte d'Ivoire</p>
-          <p>Formation intensive axée sur l'analyse de données et l'intelligence artificielle. Python pour la data science, machine learning avec scikit-learn, visualisation de données (Power BI, Matplotlib) et réseaux de neurones.</p>
+          <p class="school">{{ T.experience.edu2School }}</p>
+          <p>{{ T.experience.edu2Desc }}</p>
           <div class="tech-tags">
             <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>TensorFlow</span><span>Power BI</span>
           </div>
@@ -134,11 +134,11 @@
         <div class="formation-icon">📜</div>
         <div class="formation-body">
           <div class="formation-header">
-            <h3>Baccalauréat série D</h3>
-            <span class="badge">2023</span>
+            <h3>{{ T.experience.edu3Title }}</h3>
+            <span class="badge">{{ T.experience.edu3Badge }}</span>
           </div>
-          <p class="school">Collège Adventiste d'Abidjan · Abidjan, Côte d'Ivoire</p>
-          <p>Obtention du Baccalauréat série D avec spécialité en mathématiques et sciences. Première étape vers les études supérieures en informatique.</p>
+          <p class="school">{{ T.experience.edu3School }}</p>
+          <p>{{ T.experience.edu3Desc }}</p>
         </div>
       </div>
 
@@ -146,11 +146,11 @@
         <div class="formation-icon">💻</div>
         <div class="formation-body">
           <div class="formation-header">
-            <h3>Auto-formation Web</h3>
-            <span class="badge">2024 — 2025</span>
+            <h3>{{ T.experience.edu4Title }}</h3>
+            <span class="badge">{{ T.experience.edu4Badge }}</span>
           </div>
-          <p class="school">En ligne · Autodidacte</p>
-          <p>Apprentissage autonome du développement web : HTML, CSS, JavaScript, puis spécialisation PHP et MySQL. Construction des premiers projets complets avec base de données.</p>
+          <p class="school">{{ T.experience.edu4School }}</p>
+          <p>{{ T.experience.edu4Desc }}</p>
           <div class="tech-tags">
             <span>HTML/CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span>
           </div>
@@ -164,27 +164,27 @@
 <!-- Compétences transversales -->
 <section class="section scroll-reveal">
   <div class="container">
-    <h2 class="section-title"><span class="accent">◆</span> Compétences transversales</h2>
+    <h2 class="section-title"><span class="accent">◆</span> {{ T.experience.softTitle }}</h2>
     <div class="soft-skills">
       <div class="soft-skill-item">
         <span class="soft-icon">🧠</span>
-        <h4>Autonomie</h4>
-        <p>Capacité à apprendre seul et à résoudre des problèmes techniques complexes</p>
+        <h4>{{ T.experience.s1Title }}</h4>
+        <p>{{ T.experience.s1Desc }}</p>
       </div>
       <div class="soft-skill-item">
         <span class="soft-icon">🎯</span>
-        <h4>Rigueur</h4>
-        <p>Attention aux détails et souci de la qualité dans chaque livrable</p>
+        <h4>{{ T.experience.s2Title }}</h4>
+        <p>{{ T.experience.s2Desc }}</p>
       </div>
       <div class="soft-skill-item">
         <span class="soft-icon">🚀</span>
-        <h4>Adaptabilité</h4>
-        <p>Montée en compétences rapide sur de nouvelles technologies</p>
+        <h4>{{ T.experience.s3Title }}</h4>
+        <p>{{ T.experience.s3Desc }}</p>
       </div>
       <div class="soft-skill-item">
         <span class="soft-icon">🤝</span>
-        <h4>Communication</h4>
-        <p>Travail en équipe et échange clair avec les parties prenantes</p>
+        <h4>{{ T.experience.s4Title }}</h4>
+        <p>{{ T.experience.s4Desc }}</p>
       </div>
     </div>
   </div>
@@ -193,11 +193,11 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <h2>Intéressé par mon profil ?</h2>
-    <p>Je suis disponible pour des opportunités de stage, alternance ou mission freelance.</p>
+    <h2>{{ T.experience.ctaTitle }}</h2>
+    <p>{{ T.experience.ctaDesc }}</p>
     <div class="cta-buttons">
-      <a routerLink="/contact" class="btn-primary">Me contacter</a>
-      <a href="assets/cv/KOUASSI-YAO-YANISSE-KYLIANE-1.pdf" download class="btn-secondary">Télécharger mon CV</a>
+      <a routerLink="/contact" class="btn-primary">{{ T.experience.ctaContact }}</a>
+      <a href="assets/cv/KOUASSI-YAO-YANISSE-KYLIANE-1.pdf" download class="btn-secondary">{{ T.experience.ctaDownload }}</a>
     </div>
   </div>
 </section>
@@ -208,26 +208,26 @@
     <div class="footer-content">
       <div class="footer-section">
         <h4>Kouassi Yao Yanisse Kyliane</h4>
-        <p>Développeur Web Full Stack passionné par l'innovation numérique</p>
+        <p>{{ T.footer.tagline }}</p>
       </div>
       <div class="footer-section">
-        <h4>Navigation</h4>
+        <h4>{{ T.footer.nav }}</h4>
         <ul>
-          <li><a routerLink="/">Accueil</a></li>
-          <li><a routerLink="/about">À propos</a></li>
-          <li><a routerLink="/skills">Compétences</a></li>
-          <li><a routerLink="/experience">Expérience</a></li>
-          <li><a routerLink="/projects">Projets</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/">{{ T.nav.home }}</a></li>
+          <li><a routerLink="/about">{{ T.nav.about }}</a></li>
+          <li><a routerLink="/skills">{{ T.nav.skills }}</a></li>
+          <li><a routerLink="/experience">{{ T.nav.experience }}</a></li>
+          <li><a routerLink="/projects">{{ T.nav.projects }}</a></li>
+          <li><a routerLink="/contact">{{ T.nav.contact }}</a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h4>Contact</h4>
+        <h4>{{ T.footer.contact }}</h4>
         <p>📧 kyliyanisse@gmail.com</p>
         <p>📍 Grand-Bassam, Côte d'Ivoire</p>
       </div>
       <div class="footer-section">
-        <h4>Réseaux</h4>
+        <h4>{{ T.footer.socials }}</h4>
         <ul>
           <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           <li><a href="https://github.com/YANIXX35/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -235,7 +235,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. Tous droits réservés.</p>
+      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. {{ T.footer.copyright }}</p>
     </div>
   </div>
 </footer>
