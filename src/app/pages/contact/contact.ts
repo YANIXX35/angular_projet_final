@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -14,6 +15,9 @@ export class Contact implements OnInit {
   isLoading = false;
   successMessage = '';
   errorMessage = '';
+
+  projectTypes = ['App web', 'App mobile', 'Data / IA', 'Backend API', 'Design', 'Formation', 'Autre'];
+  selectedTypes: string[] = [];
 
   private SERVICE_ID = 'service_c2pzzfl';
   private TEMPLATE_ID = 'template_aq4yhax';
@@ -27,9 +31,22 @@ export class Contact implements OnInit {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', Validators.required],
+      company: [''],
+      brief: ['', Validators.required],
     });
+  }
+
+  toggleType(type: string) {
+    const idx = this.selectedTypes.indexOf(type);
+    if (idx > -1) {
+      this.selectedTypes.splice(idx, 1);
+    } else {
+      this.selectedTypes.push(type);
+    }
+  }
+
+  isTypeSelected(type: string): boolean {
+    return this.selectedTypes.includes(type);
   }
 
   submitForm() {
@@ -44,31 +61,30 @@ export class Contact implements OnInit {
     this.successMessage = '';
     this.errorMessage = '';
 
-    const { name, email, subject, message } = this.contactForm.value;
+    const { name, email, company, brief } = this.contactForm.value;
 
     const templateParams = {
       name,
       email,
-      subject,
-      message,
-      time: new Date().toLocaleString('fr-FR', {
-        dateStyle: 'long',
-        timeStyle: 'short',
-      }),
+      company: company || 'Non renseigné',
+      subject: this.selectedTypes.join(', ') || 'Non spécifié',
+      message: brief,
+      time: new Date().toLocaleString('fr-FR', { dateStyle: 'long', timeStyle: 'short' }),
     };
 
     emailjs.send(this.SERVICE_ID, this.TEMPLATE_ID, templateParams)
       .then(() => {
         this.isLoading = false;
-        this.successMessage = 'Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais.';
+        this.successMessage = 'Message envoyé ! Je te réponds sous 24 h.';
         this.contactForm.reset();
-        setTimeout(() => this.successMessage = '', 5000);
+        this.selectedTypes = [];
+        setTimeout(() => this.successMessage = '', 6000);
       })
       .catch((error) => {
         console.error('Erreur EmailJS:', error);
         this.isLoading = false;
-        this.errorMessage = 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer.';
-        setTimeout(() => this.errorMessage = '', 5000);
+        this.errorMessage = 'Une erreur est survenue. Réessaie ou contacte-moi directement.';
+        setTimeout(() => this.errorMessage = '', 6000);
       });
   }
 }
