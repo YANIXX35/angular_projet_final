@@ -1,4 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageService } from './services/language.service';
 import { translations } from './translations/translations';
@@ -14,10 +15,13 @@ export class App implements OnInit {
   isMenuOpen = false;
   isDark = true;
 
+  private platformId = inject(PLATFORM_ID);
   ls = inject(LanguageService);
   get T() { return translations[this.ls.lang()]; }
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const saved = localStorage.getItem('theme');
     if (saved === 'light') {
       this.isDark = false;
@@ -39,10 +43,11 @@ export class App implements OnInit {
     this.isDark = !this.isDark;
     if (this.isDark) {
       document.body.classList.remove('light');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.body.classList.add('light');
-      localStorage.setItem('theme', 'light');
+    }
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
     }
   }
 

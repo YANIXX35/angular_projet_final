@@ -42,3 +42,9 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Variables d'environnement — ne jamais commiter
+.env
+*.env
+backend/.env
+backend_django/.env
