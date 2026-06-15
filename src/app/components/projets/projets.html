@@ -8,65 +8,58 @@
   </div>
 </section>
 
-<!-- Featured Project Section -->
-<section class="featured-project" *ngIf="featuredProject">
+<!-- Filter Bar -->
+<div class="filter-bar">
   <div class="container">
-    <div class="featured-badge">{{ T.projects.featuredBadge }}</div>
-    <div class="project-card featured">
-      <div class="project-header">
-        <h2>{{ featuredProject.title }}</h2>
-        <div class="project-tech">
-          <span *ngFor="let tech of featuredProject.technologies" class="tech-tag">{{ tech }}</span>
-        </div>
-      </div>
-      <div class="project-content">
-        @if (featuredProject.image) {
-          <div class="project-image">
-            <img [src]="featuredProject.image" [alt]="featuredProject.title" loading="lazy">
-          </div>
-        }
-        <div class="project-description">
-          <h3>{{ T.projects.descLabel }}</h3>
-          <p>{{ desc(featuredProject) }}</p>
-        </div>
-      </div>
-      <div class="project-links">
-        <a [href]="featuredProject.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
-          <span>⌥ GitHub</span>
-        </a>
-        @if (featuredProject.liveLink) {
-          <a [href]="featuredProject.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
-            <span>▶ Live Demo</span>
-          </a>
-        } @else {
-          <span class="project-link disabled">{{ T.projects.demoSoon }}</span>
-        }
-      </div>
+    <div class="filter-buttons">
+      <button
+        class="filter-btn"
+        [class.active]="activeFilter() === 'all'"
+        (click)="setFilter('all')">
+        {{ T.projects.filterAll }}
+      </button>
+      <button
+        *ngFor="let tech of filterTechs"
+        class="filter-btn"
+        [class.active]="activeFilter() === tech"
+        (click)="setFilter(tech)">
+        {{ tech }}
+      </button>
     </div>
   </div>
-</section>
+</div>
 
-<!-- Other Projects Section -->
-<section class="other-projects">
-  <div class="container">
-    <h2>{{ T.projects.othersTitle }}</h2>
-    <div class="projects-grid">
-      <div *ngFor="let project of otherProjects" class="project-card minimal">
+<!-- Normal layout: featured + others grid -->
+@if (activeFilter() === 'all') {
+
+  <!-- Featured Project Section -->
+  <section class="featured-project" *ngIf="featuredProject">
+    <div class="container">
+      <div class="featured-badge">{{ T.projects.featuredBadge }}</div>
+      <div class="project-card featured">
         <div class="project-header">
-          <h3>{{ project.title }}</h3>
+          <h2>{{ featuredProject.title }}</h2>
           <div class="project-tech">
-            <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+            <span *ngFor="let tech of featuredProject.technologies" class="tech-tag">{{ tech }}</span>
           </div>
         </div>
         <div class="project-content">
-          <p>{{ shortDesc(project) }}</p>
+          @if (featuredProject.image) {
+            <div class="project-image">
+              <img [src]="featuredProject.image" [alt]="featuredProject.title" loading="lazy">
+            </div>
+          }
+          <div class="project-description">
+            <h3>{{ T.projects.descLabel }}</h3>
+            <p>{{ desc(featuredProject) }}</p>
+          </div>
         </div>
         <div class="project-links">
-          <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
+          <a [href]="featuredProject.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
             <span>⌥ GitHub</span>
           </a>
-          @if (project.liveLink) {
-            <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
+          @if (featuredProject.liveLink) {
+            <a [href]="featuredProject.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
               <span>▶ Live Demo</span>
             </a>
           } @else {
@@ -75,8 +68,84 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Other Projects Section -->
+  <section class="other-projects">
+    <div class="container">
+      <h2>{{ T.projects.othersTitle }}</h2>
+      <div class="projects-grid">
+        <div *ngFor="let project of otherProjects" class="project-card minimal">
+          <div class="project-header">
+            <h3>{{ project.title }}</h3>
+            <div class="project-tech">
+              <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <p>{{ shortDesc(project) }}</p>
+          </div>
+          <div class="project-links">
+            <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
+              <span>⌥ GitHub</span>
+            </a>
+            @if (project.liveLink) {
+              <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
+                <span>▶ Live Demo</span>
+              </a>
+            } @else {
+              <span class="project-link disabled">{{ T.projects.demoSoon }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+} @else {
+
+  <!-- Filtered grid: flat view of all matching projects -->
+  <section class="other-projects filtered-view">
+    <div class="container">
+      <div class="filter-results">
+        <span class="filter-count">{{ filteredProjects().length }} projet(s) — {{ activeFilter() }}</span>
+      </div>
+      @if (filteredProjects().length === 0) {
+        <div class="no-results">
+          <p>Aucun projet avec cette technologie.</p>
+        </div>
+      }
+      <div class="projects-grid">
+        <div *ngFor="let project of filteredProjects()" class="project-card minimal">
+          <div class="project-header">
+            <h3>{{ project.title }}</h3>
+            <div class="project-tech">
+              <span *ngFor="let tech of project.technologies" class="tech-tag" [class.tech-tag--match]="tech.toLowerCase().includes(activeFilter().toLowerCase())">{{ tech }}</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <p>{{ shortDesc(project) }}</p>
+          </div>
+          <div class="project-links">
+            @if (project.githubLink) {
+              <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
+                <span>⌥ GitHub</span>
+              </a>
+            }
+            @if (project.liveLink) {
+              <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
+                <span>▶ Live Demo</span>
+              </a>
+            } @else {
+              <span class="project-link disabled">{{ T.projects.demoSoon }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+}
 
 <!-- Technologies Section -->
 <section class="technologies">

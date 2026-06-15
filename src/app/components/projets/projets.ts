@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Project } from '../../models/project.model';
@@ -14,24 +14,44 @@ import { translations } from '../../translations/translations';
   styleUrl: './projets.scss',
 })
 export class ProjetsComponent implements OnInit {
-  projects: Project[] = [];
-  featuredProject: Project | null = null;
-  otherProjects: Project[] = [];
+  private _allProjects = signal<Project[]>([]);
+  activeFilter = signal<string>('all');
+
+  filterTechs = ['JavaScript', 'PHP', 'Django', 'Python', 'Odoo'];
+
+  filteredProjects = computed(() => {
+    const f = this.activeFilter();
+    const all = this._allProjects();
+    if (f === 'all') return all;
+    return all.filter(p =>
+      p.technologies.some(t => t.toLowerCase().includes(f.toLowerCase()))
+    );
+  });
 
   private projectService = inject(ProjectService);
   ls = inject(LanguageService);
   get T() { return translations[this.ls.lang()]; }
 
+  get featuredProject(): Project | null {
+    const all = this._allProjects();
+    return all.find(p => p.featured) ?? all[0] ?? null;
+  }
+
+  get otherProjects(): Project[] {
+    return this._allProjects().filter(p => !p.featured);
+  }
+
   desc(p: Project): string {
     return (this.ls.lang() === 'en' && p.description_en) ? p.description_en : p.description;
   }
+
   shortDesc(p: Project): string {
     return (this.ls.lang() === 'en' && p.shortDescription_en) ? p.shortDescription_en : p.shortDescription;
   }
 
+  setFilter(tech: string) { this.activeFilter.set(tech); }
+
   ngOnInit() {
-    this.projects = this.projectService.getProjects();
-    this.featuredProject = this.projects.find(p => p.featured) || this.projects[0];
-    this.otherProjects = this.projects.filter(p => !p.featured);
+    this._allProjects.set(this.projectService.getProjects());
   }
 }

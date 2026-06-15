@@ -1,4 +1,8 @@
 <!-- Portfolio de Kouassi Yao Yanisse Kyliane -->
+
+<!-- Reading progress bar -->
+<div class="reading-progress" [style.width.%]="readingProgress()"></div>
+
 <nav [class.nav-open]="isMenuOpen" role="navigation" aria-label="Navigation principale">
   <div class="nav-container">
     <a routerLink="/home" class="logo" (click)="closeMenu()"><span>KY</span> Kouassi</a>
@@ -70,3 +74,33 @@
     <polyline points="18 15 12 9 6 15"/>
   </svg>
 </button>
+
+<!-- Splash screen (première visite) -->
+<div class="splash-screen"
+  [class.splash-active]="splashState() === 'active'"
+  [class.splash-fading]="splashState() === 'fading'"
+  aria-hidden="true">
+  <div class="splash-content">
+    <div class="splash-initials">KY</div>
+    <p class="splash-name">Kouassi Yao Yanisse Kyliane</p>
+    <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- Easter egg — Konami code ↑↑↓↓←→←→BA -->
+@if (showEasterEgg()) {
+  <div class="easter-egg-overlay" (click)="closeEasterEgg()" role="dialog" aria-modal="true">
+    <div class="easter-egg-card" (click)="$event.stopPropagation()">
+      <div class="easter-egg-emoji">🎮</div>
+      <h2>Konami Code !</h2>
+      <p>Tu connais le Konami Code — tu es clairement un vrai dev 😄<br>
+         <span class="konami-hint">↑ ↑ ↓ ↓ ← → ← → B A</span>
+      </p>
+      <button class="easter-egg-close" (click)="closeEasterEgg()">Fermer</button>
+    </div>
+  </div>
+}
+
+<!-- Custom cursor (desktop uniquement) -->
+<div class="cursor-dot" [class.cursor-visible]="cursorVisible()"></div>
+<div class="cursor-ring" [class.cursor-visible]="cursorVisible()"></div>

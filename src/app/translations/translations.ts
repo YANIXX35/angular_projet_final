@@ -124,6 +124,7 @@ const fr = {
     catDB: '🗄️ Base de Données',
     catTools: '🛠️ Outils',
     demoSoon: '⏳ Demo bientôt',
+    filterAll: 'Tous',
     ctaTitle: 'Un projet à réaliser ?',
     ctaDesc: 'Je suis disponible pour discuter de vos idées et les transformer en réalité',
     ctaContact: 'Démarrons un projet',
@@ -212,6 +213,12 @@ const fr = {
     errorMsg: "Une erreur est survenue. Réessaie ou contacte-moi directement.",
     labelResponseTime: 'TEMPS DE RÉPONSE',
     responseTimeText: 'Sous 24 heures, du lundi au samedi — fuseau horaire GMT (UTC+0).',
+  },
+  notFound: {
+    title: '404',
+    subtitle: 'Page introuvable',
+    desc: "Cette page n'existe pas ou a été déplacée.",
+    btn: "Retour à l'accueil",
   },
 };
 
@@ -339,6 +346,7 @@ const en: typeof fr = {
     catDB: '🗄️ Database',
     catTools: '🛠️ Tools',
     demoSoon: '⏳ Demo soon',
+    filterAll: 'All',
     ctaTitle: 'A project to build?',
     ctaDesc: "I'm available to discuss your ideas and turn them into reality",
     ctaContact: 'Start a project',
@@ -427,6 +435,12 @@ const en: typeof fr = {
     errorMsg: "An error occurred. Please try again or contact me directly.",
     labelResponseTime: 'RESPONSE TIME',
     responseTimeText: 'Within 24 hours, Monday to Saturday — GMT (UTC+0) timezone.',
+  },
+  notFound: {
+    title: '404',
+    subtitle: 'Page not found',
+    desc: "This page doesn't exist or has been moved.",
+    btn: 'Back to home',
   },
 };
 

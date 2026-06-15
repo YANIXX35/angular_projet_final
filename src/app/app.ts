@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject, PLATFORM_ID, HostListener, signal } from '@angular/core';
+import { Component, OnInit, inject, PLATFORM_ID, HostListener, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageService } from './services/language.service';
@@ -10,13 +10,22 @@ import { translations } from './translations/translations';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit, OnDestroy {
+export class App implements OnInit {
   title = 'yao';
   isMenuOpen = false;
   isDark = true;
+
   showScrollTop = signal(false);
+  readingProgress = signal(0);
+  cursorVisible = signal(false);
+  splashState = signal<'active' | 'fading' | 'done'>('done');
+  showEasterEgg = signal(false);
 
   private platformId = inject(PLATFORM_ID);
+  private isFinePointer = false;
+  private konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  private konamiIdx = 0;
+
   ls = inject(LanguageService);
   get T() { return translations[this.ls.lang()]; }
 
@@ -35,14 +44,53 @@ export class App implements OnInit, OnDestroy {
       }
     }
     document.documentElement.removeAttribute('data-theme');
-  }
 
-  ngOnDestroy() {}
+    this.isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (this.isFinePointer) {
+      document.body.classList.add('cursor-custom');
+    }
+
+    if (!sessionStorage.getItem('splashShown')) {
+      this.splashState.set('active');
+      setTimeout(() => {
+        this.splashState.set('fading');
+        setTimeout(() => {
+          this.splashState.set('done');
+          sessionStorage.setItem('splashShown', '1');
+        }, 700);
+      }, 2000);
+    }
+  }
 
   @HostListener('window:scroll')
   onWindowScroll() {
     if (!isPlatformBrowser(this.platformId)) return;
     this.showScrollTop.set(window.scrollY > 400);
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    this.readingProgress.set(docH > 0 ? Math.round((window.scrollY / docH) * 100) : 0);
+  }
+
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(e: MouseEvent) {
+    if (!isPlatformBrowser(this.platformId) || !this.isFinePointer) return;
+    document.documentElement.style.setProperty('--cx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--cy', e.clientY + 'px');
+    if (!this.cursorVisible()) this.cursorVisible.set(true);
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(e: KeyboardEvent) {
+    if (!isPlatformBrowser(this.platformId)) return;
+    if (e.key === this.konamiCode[this.konamiIdx]) {
+      this.konamiIdx++;
+      if (this.konamiIdx === this.konamiCode.length) {
+        this.konamiIdx = 0;
+        this.showEasterEgg.set(true);
+        setTimeout(() => this.showEasterEgg.set(false), 4500);
+      }
+    } else {
+      this.konamiIdx = e.key === this.konamiCode[0] ? 1 : 0;
+    }
   }
 
   scrollToTop() {
@@ -50,6 +98,7 @@ export class App implements OnInit, OnDestroy {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  closeEasterEgg() { this.showEasterEgg.set(false); }
   toggleMenu() { this.isMenuOpen = !this.isMenuOpen; }
   closeMenu() { this.isMenuOpen = false; }
 

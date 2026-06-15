@@ -388,6 +388,217 @@ li:has(.mobile-social-btn) {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Reading progress bar ── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 2000;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px var(--accent-glow-strong);
+  pointer-events: none;
+  border-radius: 0 99px 99px 0;
+}
+
+/* ── Custom cursor (desktop uniquement) ── */
+body.cursor-custom,
+body.cursor-custom * {
+  cursor: none !important;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(calc(var(--cx, -200px) - 4px), calc(var(--cy, -200px) - 4px));
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &.cursor-visible { opacity: 1; }
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  transform: translate(calc(var(--cx, -200px) - 18px), calc(var(--cy, -200px) - 18px));
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.14s ease-out;
+
+  &.cursor-visible { opacity: 0.5; }
+}
+
+/* ── Splash screen ── */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+
+  &.splash-active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.splash-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.splash-initials {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(5rem, 16vw, 10rem);
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--accent) 30%, var(--text-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: splashPulse 0.9s ease-in-out infinite alternate;
+}
+
+.splash-name {
+  color: var(--text-secondary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.splash-bar {
+  width: 180px;
+  height: 3px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+
+  .splash-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    animation: splashLoad 2s ease-in-out forwards;
+  }
+}
+
+@keyframes splashPulse {
+  from { opacity: 0.75; transform: scale(0.97); }
+  to   { opacity: 1;    transform: scale(1); }
+}
+
+@keyframes splashLoad {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ── Easter egg ── */
+.easter-egg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9995;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: eggFadeIn 0.3s ease;
+  cursor: default;
+}
+
+.easter-egg-card {
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  max-width: 460px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 48px var(--accent-glow);
+  animation: eggBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  .easter-egg-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .konami-hint {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+  }
+}
+
+.easter-egg-close {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.7rem 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--accent-glow-strong);
+  }
+}
+
+@keyframes eggFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes eggBounce {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
 /* ── Scroll to top button ── */
 .scroll-top-btn {
   position: fixed;

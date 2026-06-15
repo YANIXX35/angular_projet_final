@@ -63,6 +63,80 @@
   justify-content: center;
 }
 
+/* Filter Bar */
+.filter-bar {
+  background: var(--bg-primary);
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  &.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 16px var(--accent-glow-strong);
+  }
+}
+
+.filter-results {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.filter-count {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 1rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
+
+.tech-tag--match {
+  background: var(--accent-glow) !important;
+  color: var(--accent) !important;
+  border-color: var(--border-accent) !important;
+  font-weight: 700;
+}
+
+.filtered-view {
+  min-height: 40vh;
+}
+
 /* Project Cards */
 .project-card {
   background: var(--surface);

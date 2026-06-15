@@ -38,6 +38,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home'
+    title: 'Page introuvable — Kouassi Yao Yanisse Kyliane',
+    loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFoundComponent)
   }
 ];
