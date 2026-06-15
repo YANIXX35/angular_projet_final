@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, PLATFORM_ID, HostListener, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageService } from './services/language.service';
@@ -10,10 +10,11 @@ import { translations } from './translations/translations';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit {
+export class App implements OnInit, OnDestroy {
   title = 'yao';
   isMenuOpen = false;
   isDark = true;
+  showScrollTop = signal(false);
 
   private platformId = inject(PLATFORM_ID);
   ls = inject(LanguageService);
@@ -34,6 +35,19 @@ export class App implements OnInit {
       }
     }
     document.documentElement.removeAttribute('data-theme');
+  }
+
+  ngOnDestroy() {}
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.showScrollTop.set(window.scrollY > 400);
+  }
+
+  scrollToTop() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   toggleMenu() { this.isMenuOpen = !this.isMenuOpen; }
