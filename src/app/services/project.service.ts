@@ -16,7 +16,7 @@ export class ProjectService {
         technologies: ['JavaScript', 'APIs externes', 'Telegram API', 'Vercel'],
         githubLink: '',
         liveLink: 'https://bs-mailnotif-nine.vercel.app/',
-        image: 'assets/projects/mailnotif.svg',
+        image: 'assets/projects/mailnotif.png',
         featured: true
       },
       {
@@ -41,7 +41,7 @@ export class ProjectService {
         technologies: ['Django', 'Python', 'MySQL', 'HTML/CSS'],
         githubLink: 'https://github.com/YANIXX35/django_yanisse_final',
         liveLink: 'https://django-yanisse-final.onrender.com/',
-        image: 'assets/projects/vehicules.svg',
+        image: 'assets/projects/vehicules.png',
       },
       {
         id: 4,
