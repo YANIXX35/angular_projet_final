@@ -15,7 +15,7 @@ export class ProjectService {
         shortDescription_en: 'Email notification app → Telegram & WhatsApp — deployed on Vercel',
         technologies: ['JavaScript', 'APIs externes', 'Telegram API', 'Vercel'],
         githubLink: '',
-        liveLink: 'https://bs-mailnotif-nine.vercel.app/',
+        liveLink: 'https://www.notifymails.com/',
         image: 'assets/projects/mailnotif.png',
         featured: true
       },
