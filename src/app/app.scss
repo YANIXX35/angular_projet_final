@@ -478,7 +478,6 @@ body.cursor-custom * {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: splashPulse 0.9s ease-in-out infinite alternate;
 }
 
 .splash-name {
@@ -504,10 +503,7 @@ body.cursor-custom * {
   }
 }
 
-@keyframes splashPulse {
-  from { opacity: 0.75; transform: scale(0.97); }
-  to   { opacity: 1;    transform: scale(1); }
-}
+
 
 @keyframes splashLoad {
   from { width: 0%; }
