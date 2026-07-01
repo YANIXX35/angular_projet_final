@@ -63,6 +63,7 @@
     #ky-splash .ky{font-family:'Space Grotesk',sans-serif;font-size:clamp(5rem,16vw,10rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#FF6B6B 30%,#8B2FC9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     #ky-splash .ky-name{color:#64748b;font-family:'Space Grotesk',sans-serif;font-size:clamp(0.75rem,2vw,1rem);letter-spacing:0.12em;text-transform:uppercase;margin:0}
     [data-theme="light"] #ky-splash .ky-name{color:#64748b}
+    #ky-splash .ky-percent{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:#FF6B6B;letter-spacing:-0.02em;min-width:5ch;text-align:center}
     #ky-splash .ky-bar{width:180px;height:3px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}
     [data-theme="light"] #ky-splash .ky-bar{background:#e2e8f0}
     #ky-splash .ky-bar-fill{height:100%;width:0;background:#FF6B6B;border-radius:99px;animation:kyLoad 2s ease-in-out forwards}
@@ -75,7 +76,9 @@
     <div id="ky-splash">
       <div class="ky">KY</div>
       <p class="ky-name">Kouassi Yao Yanisse Kyliane</p>
+      <div class="ky-percent" id="ky-pct">0%</div>
       <div class="ky-bar"><div class="ky-bar-fill"></div></div>
+      <script>var _p=0,_el=document.getElementById('ky-pct'),_iv=setInterval(function(){_p++;_el.textContent=_p+'%';if(_p>=100)clearInterval(_iv);},20);</script>
     </div>
   </app-root>
 </body>

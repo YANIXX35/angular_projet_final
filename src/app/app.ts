@@ -19,6 +19,7 @@ export class App implements OnInit {
   readingProgress = signal(0);
   cursorVisible = signal(false);
   splashState = signal<'active' | 'fading' | 'done'>('done');
+  splashProgress = signal(0);
   showEasterEgg = signal(false);
 
   private platformId = inject(PLATFORM_ID);
@@ -52,6 +53,12 @@ export class App implements OnInit {
 
     if (!sessionStorage.getItem('splashShown')) {
       this.splashState.set('active');
+      let p = 0;
+      const iv = setInterval(() => {
+        p++;
+        this.splashProgress.set(p);
+        if (p >= 100) clearInterval(iv);
+      }, 20);
       setTimeout(() => {
         this.splashState.set('fading');
         setTimeout(() => {

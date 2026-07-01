@@ -488,6 +488,16 @@ body.cursor-custom * {
   text-transform: uppercase;
 }
 
+.splash-percent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  min-width: 5ch;
+  text-align: center;
+}
+
 .splash-bar {
   width: 180px;
   height: 3px;
