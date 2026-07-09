@@ -48,6 +48,14 @@ export class ProjetsComponent implements OnInit {
     return (this.ls.lang() === 'en' && p.shortDescription_en) ? p.shortDescription_en : p.shortDescription;
   }
 
+  hasRealImage(p: Project): boolean {
+    return !!p.image && p.image.endsWith('.png');
+  }
+
+  primaryTech(p: Project): string {
+    return p.technologies[0] ?? '';
+  }
+
   setFilter(tech: string) { this.activeFilter.set(tech); }
 
   ngOnInit() {

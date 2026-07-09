@@ -12,17 +12,11 @@
 <div class="filter-bar">
   <div class="container">
     <div class="filter-buttons">
-      <button
-        class="filter-btn"
-        [class.active]="activeFilter() === 'all'"
-        (click)="setFilter('all')">
+      <button class="filter-btn" [class.active]="activeFilter() === 'all'" (click)="setFilter('all')">
         {{ T.projects.filterAll }}
       </button>
       @for (tech of filterTechs; track tech) {
-        <button
-          class="filter-btn"
-          [class.active]="activeFilter() === tech"
-          (click)="setFilter(tech)">
+        <button class="filter-btn" [class.active]="activeFilter() === tech" (click)="setFilter(tech)">
           {{ tech }}
         </button>
       }
@@ -30,131 +24,135 @@
   </div>
 </div>
 
-<!-- Normal layout: featured + others grid -->
+<!-- ── Bento Grid Projets ── -->
 @if (activeFilter() === 'all') {
+  <section class="bento-section">
+    <div class="container">
+      <div class="project-bento">
 
-  <!-- Featured Project Section -->
-  @if (featuredProject) {
-    <section class="featured-project">
-      <div class="container">
-        <div class="featured-badge">{{ T.projects.featuredBadge }}</div>
-        <div class="project-card featured">
-          <div class="project-header">
-            <h2>{{ featuredProject.title }}</h2>
-            <div class="project-tech">
-              @for (tech of featuredProject.technologies; track tech) {
-                <span class="tech-tag">{{ tech }}</span>
+        <!-- Featured — 3 cols -->
+        @if (featuredProject) {
+          <div class="bento-card bento-col3">
+            <div class="bento-top">
+              <span class="bento-badge featured-badge">⭐ {{ T.projects.featuredBadge }}</span>
+              @if (featuredProject.liveLink) {
+                <span class="bento-status status-live">● En ligne</span>
               }
             </div>
-          </div>
-          <div class="project-content">
-            @if (featuredProject.image) {
-              <div class="project-image">
+            @if (hasRealImage(featuredProject)) {
+              <div class="bento-img">
                 <img [src]="featuredProject.image" [alt]="featuredProject.title" loading="lazy">
               </div>
             }
-            <div class="project-description">
-              <h3>{{ T.projects.descLabel }}</h3>
-              <p>{{ desc(featuredProject) }}</p>
+            <div class="bento-body">
+              <h2 class="bento-title">{{ featuredProject.title }}</h2>
+              <div class="bento-tags">
+                @for (tech of featuredProject.technologies; track tech) {
+                  <span class="tech-tag">{{ tech }}</span>
+                }
+              </div>
+              <p class="bento-desc">{{ desc(featuredProject) }}</p>
+              <div class="bento-links">
+                @if (featuredProject.githubLink) {
+                  <a [href]="featuredProject.githubLink" class="blink secondary" target="_blank" rel="noopener noreferrer">⌥ GitHub</a>
+                }
+                @if (featuredProject.liveLink) {
+                  <a [href]="featuredProject.liveLink" class="blink primary" target="_blank" rel="noopener noreferrer">▶ Live Demo</a>
+                } @else {
+                  <span class="blink disabled">{{ T.projects.demoSoon }}</span>
+                }
+              </div>
             </div>
           </div>
-          <div class="project-links">
-            @if (featuredProject.githubLink) {
-              <a [href]="featuredProject.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
-                <span>⌥ GitHub</span>
-              </a>
-            }
-            @if (featuredProject.liveLink) {
-              <a [href]="featuredProject.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
-                <span>▶ Live Demo</span>
-              </a>
-            } @else {
-              <span class="project-link disabled">{{ T.projects.demoSoon }}</span>
-            }
-          </div>
-        </div>
-      </div>
-    </section>
-  }
+        }
 
-  <!-- Other Projects Section -->
-  <section class="other-projects">
-    <div class="container">
-      <h2>{{ T.projects.othersTitle }}</h2>
-      <div class="projects-grid">
-        @for (project of otherProjects; track project.title) {
-          <div class="project-card minimal">
-            <div class="project-header">
-              <h3>{{ project.title }}</h3>
-              <div class="project-tech">
+        <!-- Autres projets -->
+        @for (project of otherProjects; track project.id; let i = $index) {
+          <div class="bento-card" [class.bento-col2]="i >= 1">
+            <div class="bento-top">
+              <span class="bento-badge">
+                {{ primaryTech(project) }}
+              </span>
+              @if (project.liveLink) {
+                <span class="bento-status status-live">● Live</span>
+              } @else if (project.githubLink) {
+                <span class="bento-status status-gh">⌥ Open source</span>
+              }
+            </div>
+            @if (hasRealImage(project) && i >= 1) {
+              <div class="bento-img bento-img--sm">
+                <img [src]="project.image" [alt]="project.title" loading="lazy">
+              </div>
+            }
+            <div class="bento-body">
+              <h3 class="bento-title bento-title--sm">{{ project.title }}</h3>
+              <div class="bento-tags">
                 @for (tech of project.technologies; track tech) {
                   <span class="tech-tag">{{ tech }}</span>
                 }
               </div>
-            </div>
-            <div class="project-content">
-              <p>{{ shortDesc(project) }}</p>
-            </div>
-            <div class="project-links">
-              @if (project.githubLink) {
-                <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
-                  <span>⌥ GitHub</span>
-                </a>
-              }
-              @if (project.liveLink) {
-                <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
-                  <span>▶ Live Demo</span>
-                </a>
-              } @else {
-                <span class="project-link disabled">{{ T.projects.demoSoon }}</span>
-              }
+              <p class="bento-desc bento-desc--sm">{{ shortDesc(project) }}</p>
+              <div class="bento-links">
+                @if (project.githubLink) {
+                  <a [href]="project.githubLink" class="blink secondary" target="_blank" rel="noopener noreferrer">⌥ GitHub</a>
+                }
+                @if (project.liveLink) {
+                  <a [href]="project.liveLink" class="blink primary" target="_blank" rel="noopener noreferrer">▶ Live</a>
+                } @else {
+                  <span class="blink disabled">{{ T.projects.demoSoon }}</span>
+                }
+              </div>
             </div>
           </div>
         }
+
       </div>
     </div>
   </section>
 
 } @else {
 
-  <!-- Filtered grid: flat view of all matching projects -->
-  <section class="other-projects filtered-view">
+  <!-- Vue filtrée -->
+  <section class="filtered-section">
     <div class="container">
       <div class="filter-results">
         <span class="filter-count">{{ filteredProjects().length }} projet(s) — {{ activeFilter() }}</span>
       </div>
       @if (filteredProjects().length === 0) {
-        <div class="no-results">
-          <p>Aucun projet avec cette technologie.</p>
-        </div>
+        <div class="no-results"><p>Aucun projet avec cette technologie.</p></div>
       }
-      <div class="projects-grid">
-        @for (project of filteredProjects(); track project.title) {
-          <div class="project-card minimal">
-            <div class="project-header">
-              <h3>{{ project.title }}</h3>
-              <div class="project-tech">
+      <div class="filtered-grid">
+        @for (project of filteredProjects(); track project.id) {
+          <div class="bento-card">
+            <div class="bento-top">
+              <span class="bento-badge">{{ primaryTech(project) }}</span>
+              @if (project.liveLink) {
+                <span class="bento-status status-live">● Live</span>
+              }
+            </div>
+            @if (hasRealImage(project)) {
+              <div class="bento-img bento-img--sm">
+                <img [src]="project.image" [alt]="project.title" loading="lazy">
+              </div>
+            }
+            <div class="bento-body">
+              <h3 class="bento-title bento-title--sm">{{ project.title }}</h3>
+              <div class="bento-tags">
                 @for (tech of project.technologies; track tech) {
                   <span class="tech-tag" [class.tech-tag--match]="tech.toLowerCase().includes(activeFilter().toLowerCase())">{{ tech }}</span>
                 }
               </div>
-            </div>
-            <div class="project-content">
-              <p>{{ shortDesc(project) }}</p>
-            </div>
-            <div class="project-links">
-              @if (project.githubLink) {
-                <a [href]="project.githubLink" class="project-link secondary" target="_blank" rel="noopener noreferrer">
-                  <span>⌥ GitHub</span>
-                </a>
-              }
-              @if (project.liveLink) {
-                <a [href]="project.liveLink" class="project-link primary" target="_blank" rel="noopener noreferrer">
-                  <span>▶ Live Demo</span>
-                </a>
-              } @else {
-                <span class="project-link disabled">{{ T.projects.demoSoon }}</span>
-              }
+              <p class="bento-desc bento-desc--sm">{{ shortDesc(project) }}</p>
+              <div class="bento-links">
+                @if (project.githubLink) {
+                  <a [href]="project.githubLink" class="blink secondary" target="_blank" rel="noopener noreferrer">⌥ GitHub</a>
+                }
+                @if (project.liveLink) {
+                  <a [href]="project.liveLink" class="blink primary" target="_blank" rel="noopener noreferrer">▶ Live</a>
+                } @else {
+                  <span class="blink disabled">{{ T.projects.demoSoon }}</span>
+                }
+              </div>
             </div>
           </div>
         }
@@ -164,40 +162,7 @@
 
 }
 
-<!-- Technologies Section -->
-<section class="technologies">
-  <div class="container">
-    <h2>{{ T.projects.techTitle }}</h2>
-    <div class="tech-grid">
-      <div class="tech-category">
-        <h3>{{ T.projects.catFrontend }}</h3>
-        <div class="tech-list">
-          <span>Angular</span><span>TypeScript</span><span>HTML5/CSS3</span><span>JavaScript</span><span>SCSS</span>
-        </div>
-      </div>
-      <div class="tech-category">
-        <h3>{{ T.projects.catBackend }}</h3>
-        <div class="tech-list">
-          <span>Django</span><span>PHP</span><span>Laravel</span><span>REST API</span><span>Python</span>
-        </div>
-      </div>
-      <div class="tech-category">
-        <h3>{{ T.projects.catDB }}</h3>
-        <div class="tech-list">
-          <span>MySQL</span><span>SQLite</span>
-        </div>
-      </div>
-      <div class="tech-category">
-        <h3>{{ T.projects.catTools }}</h3>
-        <div class="tech-list">
-          <span>Git / GitHub</span><span>VS Code</span><span>XAMPP / Laragon</span><span>npm</span><span>Vercel / Render</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Section -->
+<!-- CTA -->
 <section class="cta">
   <div class="container">
     <div class="cta-content">
