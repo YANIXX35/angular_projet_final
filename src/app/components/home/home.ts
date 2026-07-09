@@ -1,4 +1,5 @@
-import { Component, OnDestroy, AfterViewInit, inject, effect } from '@angular/core';
+import { Component, OnDestroy, AfterViewInit, inject, effect, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { GsapAnimationService } from '../../services/gsap-animation.service';
 import { LanguageService } from '../../services/language.service';
@@ -19,6 +20,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   private readonly CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%!?&*';
 
   private gsap = inject(GsapAnimationService);
+  private platformId = inject(PLATFORM_ID);
   ls = inject(LanguageService);
   get T() { return translations[this.ls.lang()]; }
 
@@ -35,6 +37,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.viewInitialized = true;
     this.startScramble();
+    this.gsap.animateHero();
+    this.gsap.animateProfileGlow();
+    this.gsap.animateGradientText('.hero-text h1');
   }
 
   private stopAll() {
@@ -74,6 +79,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     };
 
     cycle();
+  }
+
+  scrollDown() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   }
 
   ngOnDestroy() {
