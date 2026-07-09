@@ -8,128 +8,145 @@
   </div>
 </section>
 
-<!-- Technical Skills Section -->
-<section class="technical-skills scroll-reveal">
+<!-- Bento Skills Section -->
+<section class="bento-section scroll-reveal">
   <div class="container">
-    <h2>{{ T.skills.sectionTitle }}</h2>
+    <h2 class="bento-title">{{ T.skills.sectionTitle }}</h2>
 
-    <!-- Frontend -->
-    <div class="skill-category">
-      <h3>{{ T.skills.catFrontend }}</h3>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <h4>HTML5 / CSS3</h4>
-          <div class="skill-tags-row">
-            <span>Flexbox</span><span>Grid</span><span>Responsive</span><span>SCSS</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_html }}</p>
-        </div>
-        <div class="skill-item">
-          <h4>JavaScript / TypeScript</h4>
-          <div class="skill-tags-row">
-            <span>ES6+</span><span>DOM</span><span>Async</span><span>Types</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_js }}</p>
-        </div>
-        <div class="skill-item">
-          <h4>Angular</h4>
-          <div class="skill-tags-row">
-            <span>Components</span><span>Routing</span><span>Services</span><span>Forms</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_angular }}</p>
-        </div>
-      </div>
-    </div>
+    <div class="bento-grid">
 
-    <!-- Backend -->
-    <div class="skill-category">
-      <h3>{{ T.skills.catBackend }}</h3>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <h4>PHP</h4>
-          <div class="skill-tags-row">
-            <span>POO</span><span>MVC</span><span>Pages dynamiques</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_php }}</p>
+      <!-- Angular — Featured 2×2 -->
+      <div class="bento-card bento-featured cat-frontend">
+        <span class="bento-cat">Frontend</span>
+        <div class="bento-icon">Δ</div>
+        <h3 class="bento-name">Angular</h3>
+        <div class="bento-tags">
+          <span>Components</span><span>Routing</span><span>Services</span><span>Signals</span><span>Forms</span>
         </div>
-        <div class="skill-item">
-          <h4>Laravel</h4>
-          <div class="skill-tags-row">
-            <span>MVC</span><span>Eloquent ORM</span><span>Routes</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_laravel }}</p>
-        </div>
-        <div class="skill-item">
-          <h4>Django / Python</h4>
-          <div class="skill-tags-row">
-            <span>Django REST</span><span>Models</span><span>API CRUD</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_django }}</p>
-        </div>
-        <div class="skill-item">
-          <h4>MySQL</h4>
-          <div class="skill-tags-row">
-            <span>Requêtes SQL</span><span>Jointures</span><span>phpMyAdmin</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_mysql }}</p>
-        </div>
+        <p class="bento-proof">{{ T.skills.p_angular }}</p>
       </div>
-    </div>
 
-    <!-- Outils -->
-    <div class="skill-category">
-      <h3>{{ T.skills.catTools }}</h3>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <h4>Git / GitHub</h4>
-          <div class="skill-tags-row">
-            <span>Commits</span><span>Branches</span><span>Push/Pull</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_git }}</p>
+      <!-- HTML5 / CSS3 -->
+      <div class="bento-card cat-frontend">
+        <span class="bento-cat">Frontend</span>
+        <div class="bento-icon">&lt;/&gt;</div>
+        <h3 class="bento-name">HTML5 / CSS3</h3>
+        <div class="bento-tags">
+          <span>Flexbox</span><span>Grid</span><span>SCSS</span><span>Responsive</span>
         </div>
-        <div class="skill-item">
-          <h4>VS Code</h4>
-          <div class="skill-tags-row">
-            <span>Extensions</span><span>Débogage</span><span>Terminal</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_vscode }}</p>
-        </div>
-        <div class="skill-item">
-          <h4>XAMPP / WAMP</h4>
-          <div class="skill-tags-row">
-            <span>Apache</span><span>MySQL local</span><span>PHP</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_xampp }}</p>
-        </div>
+        <p class="bento-proof">{{ T.skills.p_html }}</p>
       </div>
-    </div>
 
-    <!-- Data & Analyse -->
-    <div class="skill-category">
-      <h3>{{ T.skills.catData }}</h3>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <h4>Python / Pandas</h4>
-          <div class="skill-tags-row">
-            <span>DataFrames</span><span>Nettoyage</span><span>Analyse</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_pandas }}</p>
+      <!-- JavaScript / TypeScript -->
+      <div class="bento-card cat-frontend">
+        <span class="bento-cat">Frontend</span>
+        <div class="bento-icon">TS</div>
+        <h3 class="bento-name">JavaScript / TypeScript</h3>
+        <div class="bento-tags">
+          <span>ES6+</span><span>DOM</span><span>Async</span><span>Types</span>
         </div>
-        <div class="skill-item">
-          <h4>Data Visualisation</h4>
-          <div class="skill-tags-row">
-            <span>Power BI</span><span>Matplotlib</span><span>Graphiques</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_dataviz }}</p>
-        </div>
-        <div class="skill-item">
-          <h4>Machine Learning</h4>
-          <div class="skill-tags-row">
-            <span>scikit-learn</span><span>TensorFlow</span><span>Modélisation</span>
-          </div>
-          <p class="skill-proof">{{ T.skills.p_ml }}</p>
-        </div>
+        <p class="bento-proof">{{ T.skills.p_js }}</p>
       </div>
+
+      <!-- PHP -->
+      <div class="bento-card cat-backend">
+        <span class="bento-cat">Backend</span>
+        <div class="bento-icon">PHP</div>
+        <h3 class="bento-name">PHP</h3>
+        <div class="bento-tags">
+          <span>POO</span><span>MVC</span><span>Pages dynamiques</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_php }}</p>
+      </div>
+
+      <!-- Laravel -->
+      <div class="bento-card cat-backend">
+        <span class="bento-cat">Backend</span>
+        <div class="bento-icon">Lv</div>
+        <h3 class="bento-name">Laravel</h3>
+        <div class="bento-tags">
+          <span>MVC</span><span>Eloquent ORM</span><span>Routes</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_laravel }}</p>
+      </div>
+
+      <!-- Django — Wide -->
+      <div class="bento-card bento-wide cat-backend">
+        <span class="bento-cat">Backend</span>
+        <div class="bento-icon">Dj</div>
+        <h3 class="bento-name">Django / Python</h3>
+        <div class="bento-tags">
+          <span>Django REST</span><span>Models</span><span>API CRUD</span><span>Gunicorn</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_django }}</p>
+      </div>
+
+      <!-- MySQL — Wide -->
+      <div class="bento-card bento-wide cat-backend">
+        <span class="bento-cat">Base de données</span>
+        <div class="bento-icon">SQL</div>
+        <h3 class="bento-name">MySQL</h3>
+        <div class="bento-tags">
+          <span>Requêtes SQL</span><span>Jointures</span><span>phpMyAdmin</span><span>SQLite</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_mysql }}</p>
+      </div>
+
+      <!-- Git -->
+      <div class="bento-card cat-tools">
+        <span class="bento-cat">Outils</span>
+        <div class="bento-icon">⎇</div>
+        <h3 class="bento-name">Git / GitHub</h3>
+        <div class="bento-tags">
+          <span>Commits</span><span>Branches</span><span>Push/Pull</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_git }}</p>
+      </div>
+
+      <!-- VS Code -->
+      <div class="bento-card cat-tools">
+        <span class="bento-cat">Outils</span>
+        <div class="bento-icon">&#123; &#125;</div>
+        <h3 class="bento-name">VS Code</h3>
+        <div class="bento-tags">
+          <span>Extensions</span><span>Débogage</span><span>Terminal</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_vscode }}</p>
+      </div>
+
+      <!-- Python / Pandas — Wide -->
+      <div class="bento-card bento-wide cat-data">
+        <span class="bento-cat">Data</span>
+        <div class="bento-icon">Py</div>
+        <h3 class="bento-name">Python / Pandas</h3>
+        <div class="bento-tags">
+          <span>DataFrames</span><span>Nettoyage</span><span>Analyse</span><span>NumPy</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_pandas }}</p>
+      </div>
+
+      <!-- Data Visualisation — Wide -->
+      <div class="bento-card bento-wide cat-data">
+        <span class="bento-cat">Data</span>
+        <div class="bento-icon">◎</div>
+        <h3 class="bento-name">Data Visualisation</h3>
+        <div class="bento-tags">
+          <span>Power BI</span><span>Matplotlib</span><span>Graphiques</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_dataviz }}</p>
+      </div>
+
+      <!-- Machine Learning — Wide -->
+      <div class="bento-card bento-wide cat-data">
+        <span class="bento-cat">Data / IA</span>
+        <div class="bento-icon">∿</div>
+        <h3 class="bento-name">Machine Learning</h3>
+        <div class="bento-tags">
+          <span>scikit-learn</span><span>TensorFlow</span><span>Modélisation</span>
+        </div>
+        <p class="bento-proof">{{ T.skills.p_ml }}</p>
+      </div>
+
     </div>
   </div>
 </section>
