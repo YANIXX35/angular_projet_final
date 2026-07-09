@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, inject, effect } from '@angular/core';
+import { Component, OnDestroy, AfterViewInit, inject, effect } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GsapAnimationService } from '../../services/gsap-animation.service';
 import { LanguageService } from '../../services/language.service';
@@ -13,10 +13,10 @@ import { translations } from '../../translations/translations';
 export class HomeComponent implements AfterViewInit, OnDestroy {
   subtitleText = '';
   private phraseIndex = 0;
-  private charIndex = 0;
-  private isDeleting = false;
-  private typeInterval: any;
+  private scrambleRef: any;
+  private pauseRef: any;
   private viewInitialized = false;
+  private readonly CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%!?&*';
 
   private gsap = inject(GsapAnimationService);
   ls = inject(LanguageService);
@@ -25,50 +25,59 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor() {
     effect(() => {
       const _lang = this.ls.lang();
-      clearTimeout(this.typeInterval);
-      this.subtitleText = '';
+      this.stopAll();
       this.phraseIndex = 0;
-      this.charIndex = 0;
-      this.isDeleting = false;
-      if (this.viewInitialized) this.startTypewriter();
+      this.subtitleText = '';
+      if (this.viewInitialized) this.startScramble();
     });
   }
 
   ngAfterViewInit() {
     this.viewInitialized = true;
-    this.startTypewriter();
+    this.startScramble();
   }
 
-  private startTypewriter() {
-    const tick = () => {
-      const current = this.T.home.phrases[this.phraseIndex];
-      if (this.isDeleting) {
-        this.subtitleText = current.substring(0, this.charIndex - 1);
-        this.charIndex--;
-      } else {
-        this.subtitleText = current.substring(0, this.charIndex + 1);
-        this.charIndex++;
-      }
+  private stopAll() {
+    clearInterval(this.scrambleRef);
+    clearTimeout(this.pauseRef);
+  }
 
-      let delay = this.isDeleting ? 50 : 80;
+  private startScramble() {
+    const cycle = () => {
+      const target = this.T.home.phrases[this.phraseIndex];
+      const totalSteps = target.length * 5;
+      let step = 0;
 
-      if (!this.isDeleting && this.charIndex === current.length) {
-        delay = 1800;
-        this.isDeleting = true;
-      } else if (this.isDeleting && this.charIndex === 0) {
-        this.isDeleting = false;
-        this.phraseIndex = (this.phraseIndex + 1) % this.T.home.phrases.length;
-        delay = 400;
-      }
+      clearInterval(this.scrambleRef);
+      this.scrambleRef = setInterval(() => {
+        const locked = Math.floor(step / 5);
+        this.subtitleText = target
+          .split('')
+          .map((char, i) => {
+            if (char === ' ') return ' ';
+            if (i < locked) return char;
+            return this.CHARS[Math.floor(Math.random() * this.CHARS.length)];
+          })
+          .join('');
 
-      this.typeInterval = setTimeout(tick, delay);
+        step++;
+
+        if (step > totalSteps) {
+          clearInterval(this.scrambleRef);
+          this.subtitleText = target;
+          this.pauseRef = setTimeout(() => {
+            this.phraseIndex = (this.phraseIndex + 1) % this.T.home.phrases.length;
+            cycle();
+          }, 2500);
+        }
+      }, 35);
     };
 
-    tick();
+    cycle();
   }
 
   ngOnDestroy() {
-    clearTimeout(this.typeInterval);
+    this.stopAll();
     this.gsap.killAll();
   }
 }
