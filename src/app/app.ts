@@ -17,13 +17,11 @@ export class App implements OnInit {
 
   showScrollTop = signal(false);
   readingProgress = signal(0);
-  cursorVisible = signal(false);
   splashState = signal<'active' | 'fading' | 'done'>('done');
   splashProgress = signal(0);
   showEasterEgg = signal(false);
 
   private platformId = inject(PLATFORM_ID);
-  private isFinePointer = false;
   private konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
   private konamiIdx = 0;
 
@@ -45,11 +43,6 @@ export class App implements OnInit {
       }
     }
     document.documentElement.removeAttribute('data-theme');
-
-    this.isFinePointer = window.matchMedia('(pointer: fine)').matches;
-    if (this.isFinePointer) {
-      document.body.classList.add('cursor-custom');
-    }
 
     if (!sessionStorage.getItem('splashShown')) {
       this.splashState.set('active');
@@ -75,14 +68,6 @@ export class App implements OnInit {
     this.showScrollTop.set(window.scrollY > 400);
     const docH = document.documentElement.scrollHeight - window.innerHeight;
     this.readingProgress.set(docH > 0 ? Math.round((window.scrollY / docH) * 100) : 0);
-  }
-
-  @HostListener('window:mousemove', ['$event'])
-  onMouseMove(e: MouseEvent) {
-    if (!isPlatformBrowser(this.platformId) || !this.isFinePointer) return;
-    document.documentElement.style.setProperty('--cx', e.clientX + 'px');
-    document.documentElement.style.setProperty('--cy', e.clientY + 'px');
-    if (!this.cursorVisible()) this.cursorVisible.set(true);
   }
 
   @HostListener('window:keydown', ['$event'])

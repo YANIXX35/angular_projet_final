@@ -402,45 +402,6 @@ li:has(.mobile-social-btn) {
   border-radius: 0 99px 99px 0;
 }
 
-/* ── Custom cursor (desktop uniquement) ── */
-body.cursor-custom,
-body.cursor-custom * {
-  cursor: none !important;
-}
-
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translate(calc(var(--cx, -200px) - 4px), calc(var(--cy, -200px) - 4px));
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-  transition: opacity 0.3s;
-
-  &.cursor-visible { opacity: 1; }
-}
-
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1.5px solid var(--accent);
-  transform: translate(calc(var(--cx, -200px) - 18px), calc(var(--cy, -200px) - 18px));
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.14s ease-out;
-
-  &.cursor-visible { opacity: 0.5; }
-}
 
 /* ── Splash screen ── */
 .splash-screen {
