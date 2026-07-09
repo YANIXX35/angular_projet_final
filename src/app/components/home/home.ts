@@ -37,9 +37,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.viewInitialized = true;
     this.startScramble();
-    this.gsap.animateHero();
-    this.gsap.animateProfileGlow();
-    this.gsap.animateGradientText('.hero-text h1');
   }
 
   private stopAll() {

@@ -26,19 +26,14 @@
   }
 
   &::before {
-    width: 500px;
-    height: 500px;
-    top: -100px;
-    left: -100px;
+    width: 500px; height: 500px;
+    top: -100px; left: -100px;
     background: radial-gradient(circle, rgba(255,107,107,0.10) 0%, transparent 70%);
-    animation-delay: 0s;
   }
 
   &::after {
-    width: 400px;
-    height: 400px;
-    bottom: -80px;
-    right: -80px;
+    width: 400px; height: 400px;
+    bottom: -80px; right: -80px;
     background: radial-gradient(circle, rgba(139,47,201,0.07) 0%, transparent 70%);
     animation: blobFloat 16s ease-in-out infinite reverse;
   }
@@ -57,26 +52,29 @@
   padding: 120px 24px;
 }
 
-/* ── Badge disponibilité ── */
+/* ── Texte hero ── */
+.hero-text { color: var(--text-primary); }
+
+/* Badge disponibilité */
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.3);
   color: #10B981;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   padding: 0.35rem 0.85rem;
   border-radius: 99px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   width: fit-content;
+  animation: fadeInUp 0.6s var(--ease-expo) 0s both;
 }
 
 .badge-dot {
-  width: 7px;
-  height: 7px;
+  width: 7px; height: 7px;
   border-radius: 50%;
   background: #10B981;
   animation: pulse-dot 2s ease-in-out infinite;
@@ -85,12 +83,10 @@
 
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.7); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
 }
 
-/* ── Texte hero ── */
-.hero-text { color: var(--text-primary); }
-
+/* Nom */
 .hero-text h1 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2.4rem, 5vw, 3.8rem);
@@ -98,13 +94,14 @@
   line-height: 1.1;
   letter-spacing: -0.04em;
   margin-bottom: 1.25rem;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-primary) 50%, var(--accent) 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-primary) 60%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: fadeInUp 0.9s var(--ease-expo) 0.1s both;
 }
 
+/* Sous-titre scramble */
 .subtitle {
   font-family: 'Courier New', 'Courier', monospace;
   font-size: clamp(1rem, 2vw, 1.2rem);
@@ -114,14 +111,17 @@
   letter-spacing: 0.04em;
   min-height: 1.8em;
   text-shadow: 0 0 12px var(--accent-glow);
+  animation: fadeInUp 0.8s var(--ease-expo) 0.3s both;
 }
 
+/* Intro */
 .hero-text p {
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text-secondary);
   max-width: 480px;
   margin-bottom: 2.5rem;
+  animation: fadeInUp 0.7s var(--ease-expo) 0.45s both;
 }
 
 /* ── Stats ── */
@@ -129,7 +129,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s var(--ease-expo) 0.55s both;
 }
 
 .stat-item {
@@ -182,7 +183,8 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
+  animation: fadeInUp 0.6s var(--ease-expo) 0.65s both;
 }
 
 .cta-button {
@@ -217,8 +219,9 @@
 /* ── Liens sociaux ── */
 .hero-socials {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.65rem;
   flex-wrap: wrap;
+  animation: fadeInUp 0.6s var(--ease-expo) 0.75s both;
 }
 
 .social-link {
@@ -227,9 +230,9 @@
   gap: 0.4rem;
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  padding: 0.4rem 0.85rem;
+  padding: 0.38rem 0.8rem;
   border: 1px solid var(--border);
   border-radius: 99px;
   transition: all 0.2s ease;
@@ -241,10 +244,7 @@
     transform: translateY(-2px);
   }
 
-  &--wa:hover {
-    color: #25D366;
-    border-color: #25D366;
-  }
+  &--wa:hover { color: #25D366; border-color: #25D366; }
 }
 
 /* ── Image profil ── */
@@ -252,6 +252,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeInRight 0.9s var(--ease-expo) 0.2s both;
 }
 
 .profile-image-container {
@@ -262,6 +263,7 @@
   overflow: hidden;
   border: 2px solid var(--border-accent);
   box-shadow: var(--shadow-strong), 0 0 60px var(--accent-glow);
+  animation: glowPulse 4s ease-in-out 1.5s infinite;
   transition: transform var(--transition);
 
   &:hover { transform: translateY(-8px) scale(1.02); }
@@ -299,10 +301,7 @@
   &:hover { color: var(--accent); }
 }
 
-@keyframes scrollFade {
-  to { opacity: 0.5; }
-}
-
+@keyframes scrollFade   { to { opacity: 0.5; } }
 @keyframes scrollBounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%       { transform: translateX(-50%) translateY(5px); }
@@ -342,7 +341,6 @@ footer {
   transition: color var(--transition-fast);
   &:hover { color: var(--accent); }
 }
-
 .footer-section p { font-size: 0.88rem; color: var(--text-secondary); }
 
 .footer-bottom {
@@ -368,11 +366,11 @@ footer {
   }
   .hero-text p { margin: 0 auto 2rem; }
   .hero-buttons { justify-content: center; }
-  .hero-stats { justify-content: center; }
+  .hero-stats  { justify-content: center; }
   .hero-socials { justify-content: center; }
-  .hero-badge { margin: 0 auto 1.5rem; }
-  .hero-image { order: -1; }
-  .profile-image-container { width: 260px; height: 260px; }
+  .hero-badge  { margin: 0 auto 1.25rem; }
+  .hero-image  { order: -1; }
+  .profile-image-container { width: 240px; height: 240px; }
   .scroll-hint { display: none; }
   .footer-content { grid-template-columns: 1fr 1fr; }
 }
@@ -380,12 +378,12 @@ footer {
 @media (max-width: 480px) {
   .hero-content { padding: 80px 12px 60px; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
-  .profile-image-container { width: 220px; height: 220px; }
+  .profile-image-container { width: 200px; height: 200px; }
   .cta-button { width: 100%; justify-content: center; max-width: 260px; }
   .hero-buttons { flex-direction: column; align-items: center; }
   .footer-content { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 360px) {
-  .profile-image-container { width: 190px; height: 190px; }
+  .profile-image-container { width: 180px; height: 180px; }
 }
