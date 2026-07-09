@@ -72,7 +72,6 @@
   border-radius: 99px;
   margin-bottom: 1.5rem;
   width: fit-content;
-  opacity: 0;
 }
 
 .badge-dot {
@@ -104,7 +103,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  opacity: 0;
 }
 
 .subtitle {
@@ -116,7 +114,6 @@
   letter-spacing: 0.04em;
   min-height: 1.8em;
   text-shadow: 0 0 12px var(--accent-glow);
-  opacity: 0;
 }
 
 .hero-text p {
@@ -125,7 +122,6 @@
   color: var(--text-secondary);
   max-width: 480px;
   margin-bottom: 2.5rem;
-  opacity: 0;
 }
 
 /* ── Stats ── */
@@ -145,7 +141,6 @@
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
-  opacity: 0;
 
   &::before {
     content: '';
@@ -188,7 +183,6 @@
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
-  opacity: 0;
 }
 
 .cta-button {
@@ -225,7 +219,6 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  opacity: 0;
 }
 
 .social-link {
@@ -259,7 +252,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
 }
 
 .profile-image-container {
