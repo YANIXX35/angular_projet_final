@@ -1,91 +1,85 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <h1>{{ T.experience.heroTitle }}</h1>
-    <p>{{ T.experience.heroSub }}</p>
+    <div class="hero-inner">
+      <h1>{{ T.experience.heroTitle }}</h1>
+      <p>{{ T.experience.heroSub }}</p>
+    </div>
   </div>
 </section>
 
 <!-- Expériences -->
-<section class="section scroll-reveal">
+<section class="xp-section scroll-reveal">
   <div class="container">
     <h2 class="section-title"><span class="accent">◆</span> {{ T.experience.expTitle }}</h2>
+    <div class="xp-bento">
 
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
-          <div class="timeline-header">
-            <h3>{{ T.experience.e1Title }}</h3>
-            <span class="badge">{{ T.experience.e1Date }}</span>
-          </div>
-          <p class="company">{{ T.experience.e1Company }}</p>
-          <ul>
-            <li>{{ T.experience.e1b1 }}</li>
-            <li>{{ T.experience.e1b2 }}</li>
-            <li>{{ T.experience.e1b3 }}</li>
-          </ul>
-          <div class="tech-tags">
-            <span>JavaScript</span><span>APIs externes</span><span>Telegram API</span><span>Vercel</span>
-          </div>
+      <!-- e1 — featured 3 cols -->
+      <div class="bento-card bento-col3 cat-js">
+        <div class="bento-row">
+          <span class="cat-badge">Projet personnel</span>
+          <span class="date-badge">{{ T.experience.e1Date }}</span>
+        </div>
+        <div class="card-abbr">JS</div>
+        <h3 class="card-title">{{ T.experience.e1Title }}</h3>
+        <p class="card-sub">{{ T.experience.e1Company }}</p>
+        <ul class="card-bullets">
+          <li>{{ T.experience.e1b1 }}</li>
+          <li>{{ T.experience.e1b2 }}</li>
+          <li>{{ T.experience.e1b3 }}</li>
+        </ul>
+        <div class="card-tags">
+          <span>JavaScript</span><span>APIs externes</span><span>Telegram API</span><span>Vercel</span>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
-          <div class="timeline-header">
-            <h3>{{ T.experience.e2Title }}</h3>
-            <span class="badge">{{ T.experience.e2Date }}</span>
-          </div>
-          <p class="company">{{ T.experience.e2Company }}</p>
-          <ul>
-            <li>{{ T.experience.e2b1 }}</li>
-            <li>{{ T.experience.e2b2 }}</li>
-            <li>{{ T.experience.e2b3 }}</li>
-          </ul>
-          <div class="tech-tags">
-            <span>PHP</span><span>MySQL</span><span>HTML/CSS</span>
-          </div>
+      <!-- e2 — 1 col -->
+      <div class="bento-card cat-php">
+        <div class="bento-row">
+          <span class="cat-badge">Académique</span>
+          <span class="date-badge">{{ T.experience.e2Date }}</span>
+        </div>
+        <div class="card-abbr">PHP</div>
+        <h3 class="card-title">{{ T.experience.e2Title }}</h3>
+        <p class="card-sub">{{ T.experience.e2Company }}</p>
+        <div class="card-tags">
+          <span>PHP</span><span>MySQL</span><span>HTML/CSS</span>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
-          <div class="timeline-header">
-            <h3>{{ T.experience.e3Title }}</h3>
-            <span class="badge">{{ T.experience.e3Date }}</span>
-          </div>
-          <p class="company">{{ T.experience.e3Company }}</p>
-          <ul>
-            <li>{{ T.experience.e3b1 }}</li>
-            <li>{{ T.experience.e3b2 }}</li>
-            <li>{{ T.experience.e3b3 }}</li>
-          </ul>
-          <div class="tech-tags">
-            <span>Django</span><span>Python</span><span>MySQL</span><span>HTML/CSS</span>
-          </div>
+      <!-- e3 — 2 cols -->
+      <div class="bento-card bento-col2 cat-django">
+        <div class="bento-row">
+          <span class="cat-badge">Académique</span>
+          <span class="date-badge">{{ T.experience.e3Date }}</span>
+        </div>
+        <div class="card-abbr">Dj</div>
+        <h3 class="card-title">{{ T.experience.e3Title }}</h3>
+        <p class="card-sub">{{ T.experience.e3Company }}</p>
+        <ul class="card-bullets">
+          <li>{{ T.experience.e3b1 }}</li>
+          <li>{{ T.experience.e3b2 }}</li>
+        </ul>
+        <div class="card-tags">
+          <span>Django</span><span>Python</span><span>MySQL</span><span>HTML/CSS</span>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-body">
-          <div class="timeline-header">
-            <h3>{{ T.experience.e4Title }}</h3>
-            <span class="badge">{{ T.experience.e4Date }}</span>
-          </div>
-          <p class="company">{{ T.experience.e4Company }}</p>
-          <ul>
-            <li>{{ T.experience.e4b1 }}</li>
-            <li>{{ T.experience.e4b2 }}</li>
-            <li>{{ T.experience.e4b3 }}</li>
-          </ul>
-          <div class="tech-tags">
-            <span>Odoo</span><span>Python</span><span>XML</span><span>PostgreSQL</span>
-          </div>
+      <!-- e4 — 2 cols -->
+      <div class="bento-card bento-col2 cat-odoo">
+        <div class="bento-row">
+          <span class="cat-badge">Module ERP</span>
+          <span class="date-badge">{{ T.experience.e4Date }}</span>
+        </div>
+        <div class="card-abbr">OO</div>
+        <h3 class="card-title">{{ T.experience.e4Title }}</h3>
+        <p class="card-sub">{{ T.experience.e4Company }}</p>
+        <ul class="card-bullets">
+          <li>{{ T.experience.e4b1 }}</li>
+          <li>{{ T.experience.e4b2 }}</li>
+        </ul>
+        <div class="card-tags">
+          <span>Odoo</span><span>Python</span><span>XML</span><span>PostgreSQL</span>
         </div>
       </div>
 
@@ -94,66 +88,61 @@
 </section>
 
 <!-- Formations -->
-<section class="section alt scroll-reveal">
+<section class="xp-section xp-section--alt scroll-reveal">
   <div class="container">
     <h2 class="section-title"><span class="accent">◆</span> {{ T.experience.eduTitle }}</h2>
+    <div class="edu-bento">
 
-    <div class="formations-grid">
-
-      <div class="formation-card">
-        <div class="formation-icon">🎓</div>
-        <div class="formation-body">
-          <div class="formation-header">
-            <h3>{{ T.experience.edu1Title }}</h3>
-            <span class="badge current">{{ T.experience.edu1Badge }}</span>
-          </div>
-          <p class="school">{{ T.experience.edu1School }}</p>
-          <p>{{ T.experience.edu1Desc }}</p>
-          <div class="tech-tags">
-            <span>Angular</span><span>Django</span><span>PHP</span><span>Laravel</span><span>REST API</span><span>SQL</span>
-          </div>
+      <!-- edu1 — 2 cols, en cours -->
+      <div class="bento-card bento-col2 cat-edu-current">
+        <div class="bento-row">
+          <span class="cat-badge badge--current">{{ T.experience.edu1Badge }}</span>
+          <span class="edu-emoji">🎓</span>
+        </div>
+        <h3 class="card-title">{{ T.experience.edu1Title }}</h3>
+        <p class="card-sub card-sub--school">{{ T.experience.edu1School }}</p>
+        <p class="card-desc">{{ T.experience.edu1Desc }}</p>
+        <div class="card-tags">
+          <span>Angular</span><span>Django</span><span>PHP</span><span>Laravel</span><span>REST API</span><span>SQL</span>
         </div>
       </div>
 
-      <div class="formation-card">
-        <div class="formation-icon">🤖</div>
-        <div class="formation-body">
-          <div class="formation-header">
-            <h3>{{ T.experience.edu2Title }}</h3>
-            <span class="badge current">{{ T.experience.edu2Badge }}</span>
-          </div>
-          <p class="school">{{ T.experience.edu2School }}</p>
-          <p>{{ T.experience.edu2Desc }}</p>
-          <div class="tech-tags">
-            <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>TensorFlow</span><span>Power BI</span>
-          </div>
+      <!-- edu2 — 2 cols, en cours -->
+      <div class="bento-card bento-col2 cat-data-ai">
+        <div class="bento-row">
+          <span class="cat-badge badge--current">{{ T.experience.edu2Badge }}</span>
+          <span class="edu-emoji">🤖</span>
+        </div>
+        <h3 class="card-title">{{ T.experience.edu2Title }}</h3>
+        <p class="card-sub card-sub--school">{{ T.experience.edu2School }}</p>
+        <p class="card-desc">{{ T.experience.edu2Desc }}</p>
+        <div class="card-tags">
+          <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>TensorFlow</span><span>Power BI</span>
         </div>
       </div>
 
-      <div class="formation-card">
-        <div class="formation-icon">📜</div>
-        <div class="formation-body">
-          <div class="formation-header">
-            <h3>{{ T.experience.edu3Title }}</h3>
-            <span class="badge">{{ T.experience.edu3Badge }}</span>
-          </div>
-          <p class="school">{{ T.experience.edu3School }}</p>
-          <p>{{ T.experience.edu3Desc }}</p>
+      <!-- edu3 — 2 cols -->
+      <div class="bento-card bento-col2 cat-edu-past">
+        <div class="bento-row">
+          <span class="cat-badge">{{ T.experience.edu3Badge }}</span>
+          <span class="edu-emoji">📜</span>
         </div>
+        <h3 class="card-title">{{ T.experience.edu3Title }}</h3>
+        <p class="card-sub card-sub--school">{{ T.experience.edu3School }}</p>
+        <p class="card-desc">{{ T.experience.edu3Desc }}</p>
       </div>
 
-      <div class="formation-card">
-        <div class="formation-icon">💻</div>
-        <div class="formation-body">
-          <div class="formation-header">
-            <h3>{{ T.experience.edu4Title }}</h3>
-            <span class="badge">{{ T.experience.edu4Badge }}</span>
-          </div>
-          <p class="school">{{ T.experience.edu4School }}</p>
-          <p>{{ T.experience.edu4Desc }}</p>
-          <div class="tech-tags">
-            <span>HTML/CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span>
-          </div>
+      <!-- edu4 — 2 cols -->
+      <div class="bento-card bento-col2 cat-edu-past">
+        <div class="bento-row">
+          <span class="cat-badge">{{ T.experience.edu4Badge }}</span>
+          <span class="edu-emoji">💻</span>
+        </div>
+        <h3 class="card-title">{{ T.experience.edu4Title }}</h3>
+        <p class="card-sub card-sub--school">{{ T.experience.edu4School }}</p>
+        <p class="card-desc">{{ T.experience.edu4Desc }}</p>
+        <div class="card-tags">
+          <span>HTML/CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span>
         </div>
       </div>
 
@@ -162,30 +151,35 @@
 </section>
 
 <!-- Compétences transversales -->
-<section class="section scroll-reveal">
+<section class="xp-section scroll-reveal">
   <div class="container">
     <h2 class="section-title"><span class="accent">◆</span> {{ T.experience.softTitle }}</h2>
-    <div class="soft-skills">
-      <div class="soft-skill-item">
-        <span class="soft-icon">🧠</span>
-        <h4>{{ T.experience.s1Title }}</h4>
-        <p>{{ T.experience.s1Desc }}</p>
+    <div class="soft-bento">
+
+      <div class="bento-card cat-soft-1">
+        <span class="soft-emoji">🧠</span>
+        <h4 class="card-title card-title--sm">{{ T.experience.s1Title }}</h4>
+        <p class="card-desc">{{ T.experience.s1Desc }}</p>
       </div>
-      <div class="soft-skill-item">
-        <span class="soft-icon">🎯</span>
-        <h4>{{ T.experience.s2Title }}</h4>
-        <p>{{ T.experience.s2Desc }}</p>
+
+      <div class="bento-card cat-soft-2">
+        <span class="soft-emoji">🎯</span>
+        <h4 class="card-title card-title--sm">{{ T.experience.s2Title }}</h4>
+        <p class="card-desc">{{ T.experience.s2Desc }}</p>
       </div>
-      <div class="soft-skill-item">
-        <span class="soft-icon">🚀</span>
-        <h4>{{ T.experience.s3Title }}</h4>
-        <p>{{ T.experience.s3Desc }}</p>
+
+      <div class="bento-card cat-soft-3">
+        <span class="soft-emoji">🚀</span>
+        <h4 class="card-title card-title--sm">{{ T.experience.s3Title }}</h4>
+        <p class="card-desc">{{ T.experience.s3Desc }}</p>
       </div>
-      <div class="soft-skill-item">
-        <span class="soft-icon">🤝</span>
-        <h4>{{ T.experience.s4Title }}</h4>
-        <p>{{ T.experience.s4Desc }}</p>
+
+      <div class="bento-card cat-soft-4">
+        <span class="soft-emoji">🤝</span>
+        <h4 class="card-title card-title--sm">{{ T.experience.s4Title }}</h4>
+        <p class="card-desc">{{ T.experience.s4Desc }}</p>
       </div>
+
     </div>
   </div>
 </section>
