@@ -1,147 +1,190 @@
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
   <div class="container">
-    <div class="hero-content">
+    <div class="hero-inner">
       <h1>{{ T.about.heroTitle }}</h1>
       <p>{{ T.about.heroSub }}</p>
     </div>
   </div>
 </section>
 
-<!-- Story Section -->
-<section class="story scroll-reveal">
+<!-- Main Bento -->
+<section class="about-section scroll-reveal">
   <div class="container">
-    <div class="story-grid">
-      <div class="story-text">
-        <h2>{{ T.about.storyTitle }}</h2>
-        <p>{{ T.about.storyP1 }}</p>
-        <p>{{ T.about.storyP2 }}</p>
-        <p>{{ T.about.storyP3 }}</p>
+    <div class="main-bento">
+
+      <!-- Photo + Identité — 2col × 2row -->
+      <div class="bento-card bento-col2 bento-row2 cat-identity">
+        <div class="identity-photo-wrap">
+          <img src="assets/profile.jpg" alt="Kouassi Yao Yanisse Kyliane" class="identity-photo">
+          <div class="identity-overlay">
+            <h2 class="identity-name">Kouassi Yao<br>Yanisse Kyliane</h2>
+            <span class="identity-role">Développeur Fullstack / Data IA</span>
+          </div>
+        </div>
       </div>
-      <div class="story-image">
-        <img src="assets/profile.jpg" alt="Kouassi Yao Yanisse Kyliane" class="profile-photo">
+
+      <!-- Bio — 2col -->
+      <div class="bento-card bento-col2 cat-story">
+        <span class="card-label">{{ T.about.storyTitle }}</span>
+        <p class="card-text">{{ T.about.storyP1 }}</p>
+        <p class="card-text">{{ T.about.storyP2 }}</p>
       </div>
+
+      <!-- Infos — 1col -->
+      <div class="bento-card cat-info">
+        <span class="card-label">Infos</span>
+        <ul class="info-list">
+          <li><span class="info-icon">📍</span> Grand-Bassam, CI</li>
+          <li><span class="info-icon">🎓</span> L3 Informatique</li>
+          <li><span class="info-icon">📧</span> kyliyanisse&#64;gmail.com</li>
+          <li><span class="info-icon">🇨🇮</span> Côte d'Ivoire</li>
+        </ul>
+      </div>
+
+      <!-- Disponibilité — 1col -->
+      <div class="bento-card cat-dispo">
+        <span class="card-label">Statut</span>
+        <div class="dispo-badge">
+          <span class="dispo-dot"></span>
+          Disponible
+        </div>
+        <p class="dispo-text">Stage / Alternance<br><strong>2026</strong></p>
+        <p class="dispo-sub">{{ T.about.storyP3 }}</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- Highlights Section -->
-<section class="highlights scroll-reveal">
+<!-- Highlights -->
+<section class="about-section about-section--alt scroll-reveal">
   <div class="container">
-    <h2>{{ T.about.highlightsTitle }}</h2>
-    <div class="highlights-grid">
-      <div class="highlight-card">
-        <div class="highlight-icon">🚀</div>
-        <h3>{{ T.about.h1Title }}</h3>
-        <p>{{ T.about.h1Desc }}</p>
+    <h2 class="section-title"><span class="accent">◆</span> {{ T.about.highlightsTitle }}</h2>
+    <div class="four-bento">
+
+      <div class="bento-card cat-h1">
+        <span class="card-emoji">🚀</span>
+        <h3 class="card-title">{{ T.about.h1Title }}</h3>
+        <p class="card-text">{{ T.about.h1Desc }}</p>
       </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">💡</div>
-        <h3>{{ T.about.h2Title }}</h3>
-        <p>{{ T.about.h2Desc }}</p>
+
+      <div class="bento-card cat-h2">
+        <span class="card-emoji">💡</span>
+        <h3 class="card-title">{{ T.about.h2Title }}</h3>
+        <p class="card-text">{{ T.about.h2Desc }}</p>
       </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">🤝</div>
-        <h3>{{ T.about.h3Title }}</h3>
-        <p>{{ T.about.h3Desc }}</p>
+
+      <div class="bento-card cat-h3">
+        <span class="card-emoji">🤝</span>
+        <h3 class="card-title">{{ T.about.h3Title }}</h3>
+        <p class="card-text">{{ T.about.h3Desc }}</p>
       </div>
-      <div class="highlight-card">
-        <div class="highlight-icon">📚</div>
-        <h3>{{ T.about.h4Title }}</h3>
-        <p>{{ T.about.h4Desc }}</p>
+
+      <div class="bento-card cat-h4">
+        <span class="card-emoji">📚</span>
+        <h3 class="card-title">{{ T.about.h4Title }}</h3>
+        <p class="card-text">{{ T.about.h4Desc }}</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Journey Section -->
-<section class="journey scroll-reveal">
+<!-- Journey -->
+<section class="about-section scroll-reveal">
   <div class="container">
-    <h2>{{ T.about.journeyTitle }}</h2>
-    <div class="journey-timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">{{ T.about.j1Year }}</div>
-        <div class="timeline-content">
-          <h3>{{ T.about.j1Title }}</h3>
-          <p>{{ T.about.j1Desc }}</p>
-        </div>
+    <h2 class="section-title"><span class="accent">◆</span> {{ T.about.journeyTitle }}</h2>
+    <div class="journey-bento">
+
+      <!-- j1 — featured 3col -->
+      <div class="bento-card bento-col3 cat-journey">
+        <span class="year-badge">{{ T.about.j1Year }}</span>
+        <h3 class="card-title">{{ T.about.j1Title }}</h3>
+        <p class="card-text">{{ T.about.j1Desc }}</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-year">{{ T.about.j2Year }}</div>
-        <div class="timeline-content">
-          <h3>{{ T.about.j2Title }}</h3>
-          <p>{{ T.about.j2Desc }}</p>
-        </div>
+
+      <!-- j2 — 1col -->
+      <div class="bento-card cat-journey">
+        <span class="year-badge">{{ T.about.j2Year }}</span>
+        <h3 class="card-title card-title--sm">{{ T.about.j2Title }}</h3>
+        <p class="card-text card-text--sm">{{ T.about.j2Desc }}</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-year">{{ T.about.j3Year }}</div>
-        <div class="timeline-content">
-          <h3>{{ T.about.j3Title }}</h3>
-          <p>{{ T.about.j3Desc }}</p>
-        </div>
+
+      <!-- j3 — 1col -->
+      <div class="bento-card cat-journey">
+        <span class="year-badge">{{ T.about.j3Year }}</span>
+        <h3 class="card-title card-title--sm">{{ T.about.j3Title }}</h3>
+        <p class="card-text card-text--sm">{{ T.about.j3Desc }}</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-year">{{ T.about.j4Year }}</div>
-        <div class="timeline-content">
-          <h3>{{ T.about.j4Title }}</h3>
-          <p>{{ T.about.j4Desc }}</p>
-        </div>
+
+      <!-- j4 — 2col -->
+      <div class="bento-card bento-col2 cat-journey">
+        <span class="year-badge">{{ T.about.j4Year }}</span>
+        <h3 class="card-title">{{ T.about.j4Title }}</h3>
+        <p class="card-text">{{ T.about.j4Desc }}</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-year">{{ T.about.j5Year }}</div>
-        <div class="timeline-content">
-          <h3>{{ T.about.j5Title }}</h3>
-          <p>{{ T.about.j5Desc }}</p>
-        </div>
+
+      <!-- j5 — 1col -->
+      <div class="bento-card cat-journey">
+        <span class="year-badge">{{ T.about.j5Year }}</span>
+        <h3 class="card-title card-title--sm">{{ T.about.j5Title }}</h3>
+        <p class="card-text card-text--sm">{{ T.about.j5Desc }}</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Values Section -->
-<section class="values">
+<!-- Values -->
+<section class="about-section about-section--alt scroll-reveal">
   <div class="container">
-    <h2>{{ T.about.valuesTitle }}</h2>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon">🎯</div>
-        <h3>{{ T.about.v1Title }}</h3>
-        <p>{{ T.about.v1Desc }}</p>
+    <h2 class="section-title"><span class="accent">◆</span> {{ T.about.valuesTitle }}</h2>
+    <div class="four-bento">
+
+      <div class="bento-card cat-v1">
+        <span class="card-emoji">🎯</span>
+        <h3 class="card-title">{{ T.about.v1Title }}</h3>
+        <p class="card-text">{{ T.about.v1Desc }}</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">🌍</div>
-        <h3>{{ T.about.v2Title }}</h3>
-        <p>{{ T.about.v2Desc }}</p>
+
+      <div class="bento-card cat-v2">
+        <span class="card-emoji">🌍</span>
+        <h3 class="card-title">{{ T.about.v2Title }}</h3>
+        <p class="card-text">{{ T.about.v2Desc }}</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">🔧</div>
-        <h3>{{ T.about.v3Title }}</h3>
-        <p>{{ T.about.v3Desc }}</p>
+
+      <div class="bento-card cat-v3">
+        <span class="card-emoji">🔧</span>
+        <h3 class="card-title">{{ T.about.v3Title }}</h3>
+        <p class="card-text">{{ T.about.v3Desc }}</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">🤝</div>
-        <h3>{{ T.about.v4Title }}</h3>
-        <p>{{ T.about.v4Desc }}</p>
+
+      <div class="bento-card cat-v4">
+        <span class="card-emoji">🤝</span>
+        <h3 class="card-title">{{ T.about.v4Title }}</h3>
+        <p class="card-text">{{ T.about.v4Desc }}</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta">
+<!-- CTA -->
+<section class="cta-section">
   <div class="container">
-    <div class="cta-content">
+    <div class="cta-inner">
       <h2>{{ T.about.ctaTitle }}</h2>
       <p>{{ T.about.ctaDesc }}</p>
       <div class="cta-buttons">
-        <a routerLink="/contact" class="cta-button primary">{{ T.about.ctaContact }}</a>
-        <a routerLink="/projects" class="cta-button secondary">{{ T.about.ctaProjects }}</a>
+        <a routerLink="/contact" class="btn-primary">{{ T.about.ctaContact }}</a>
+        <a routerLink="/projects" class="btn-secondary">{{ T.about.ctaProjects }}</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CV Section -->
+<!-- CV -->
 <section class="cv-section">
   <div class="container">
     <h2>{{ T.about.cvTitle }}</h2>
