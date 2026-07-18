@@ -12,6 +12,7 @@
       <li><a routerLink="/skills" routerLinkActive="router-link-active" (click)="closeMenu()">{{ T.nav.skills }}</a></li>
       <li><a routerLink="/projects" routerLinkActive="router-link-active" (click)="closeMenu()">{{ T.nav.projects }}</a></li>
       <li><a routerLink="/experience" routerLinkActive="router-link-active" (click)="closeMenu()">{{ T.nav.experience }}</a></li>
+      <li><a routerLink="/certifications" routerLinkActive="router-link-active" (click)="closeMenu()">{{ T.nav.certifications }}</a></li>
       <li><a routerLink="/contact" routerLinkActive="router-link-active" (click)="closeMenu()">{{ T.nav.contact }}</a></li>
       <li class="mobile-social-divider"></li>
       <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener noreferrer" class="mobile-social-btn linkedin" (click)="closeMenu()">LinkedIn</a></li>
@@ -53,6 +54,9 @@
   </a>
   <a routerLink="/experience" routerLinkActive="active" class="float-nav-item" [title]="T.nav.experience">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+  </a>
+  <a routerLink="/certifications" routerLinkActive="active" class="float-nav-item" [title]="T.nav.certifications">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M9.5 13.5L7 22l5-3 5 3-2.5-8.5"/></svg>
   </a>
   <a routerLink="/contact" routerLinkActive="active" class="float-nav-item" [title]="T.nav.contact">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>

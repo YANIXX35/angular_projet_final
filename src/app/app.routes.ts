@@ -32,6 +32,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/experience/experience').then(m => m.ExperienceComponent)
   },
   {
+    path: 'certifications',
+    title: 'Certifications — Kouassi Yao Yanisse Kyliane',
+    loadComponent: () => import('./pages/certifications/certifications').then(m => m.CertificationsComponent)
+  },
+  {
     path: 'contact',
     title: 'Contact — Kouassi Yao Yanisse Kyliane',
     loadComponent: () => import('./pages/contact/contact').then(m => m.Contact)

@@ -1,0 +1,115 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <h1>{{ T.certifications.heroTitle }}</h1>
+      <p>{{ T.certifications.heroSub }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Certification -->
+<section class="cert-section scroll-reveal">
+  <div class="container">
+    <h2 class="section-title"><span class="accent">◆</span> {{ T.certifications.sectionTitle }}</h2>
+    <div class="cert-bento">
+
+      <!-- Photo cérémonie -->
+      <div class="bento-card bento-col2 cat-cert-photo1">
+        <div class="cert-photo-wrap">
+          <img src="assets/certifications/we-code-epitech-ceremonie.jpg" alt="Cérémonie de remise des diplômes We Code x Epitech" class="cert-photo">
+          <div class="cert-photo-overlay">
+            <span>{{ T.certifications.photo1Caption }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte info certification -->
+      <div class="bento-card bento-col2 cat-cert-info">
+        <div class="bento-row">
+          <span class="cat-badge badge--done">{{ T.certifications.cardBadge }}</span>
+          <span class="edu-emoji">🎓</span>
+        </div>
+        <h3 class="card-title">{{ T.certifications.cardTitle }}</h3>
+        <p class="card-sub card-sub--school">{{ T.certifications.cardSchool }}</p>
+        <p class="card-desc">{{ T.certifications.cardDesc }}</p>
+        <div class="card-tags">
+          <span>Python</span><span>Pandas</span><span>scikit-learn</span><span>TensorFlow</span><span>Power BI</span>
+        </div>
+      </div>
+
+      <!-- Photo attestation -->
+      <div class="bento-card bento-col2 cat-cert-photo2">
+        <div class="cert-photo-wrap">
+          <img src="assets/certifications/we-code-epitech-attestation.jpg" alt="Attestation de formation Data Analyst IA" class="cert-photo">
+          <div class="cert-photo-overlay">
+            <span>{{ T.certifications.photo2Caption }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compétences validées -->
+      <div class="bento-card bento-col2 cat-cert-skills">
+        <span class="card-label">{{ T.certifications.skillsTitle }}</span>
+        <ul class="card-bullets">
+          <li>{{ T.certifications.skill1 }}</li>
+          <li>{{ T.certifications.skill2 }}</li>
+          <li>{{ T.certifications.skill3 }}</li>
+          <li>{{ T.certifications.skill4 }}</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>{{ T.certifications.ctaTitle }}</h2>
+    <p>{{ T.certifications.ctaDesc }}</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn-primary">{{ T.certifications.ctaContact }}</a>
+      <a routerLink="/experience" class="btn-secondary">{{ T.certifications.ctaExperience }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Kouassi Yao Yanisse Kyliane</h4>
+        <p>{{ T.footer.tagline }}</p>
+      </div>
+      <div class="footer-section">
+        <h4>{{ T.footer.nav }}</h4>
+        <ul>
+          <li><a routerLink="/">{{ T.nav.home }}</a></li>
+          <li><a routerLink="/about">{{ T.nav.about }}</a></li>
+          <li><a routerLink="/skills">{{ T.nav.skills }}</a></li>
+          <li><a routerLink="/experience">{{ T.nav.experience }}</a></li>
+          <li><a routerLink="/certifications">{{ T.nav.certifications }}</a></li>
+          <li><a routerLink="/projects">{{ T.nav.projects }}</a></li>
+          <li><a routerLink="/contact">{{ T.nav.contact }}</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>{{ T.footer.contact }}</h4>
+        <p>📧 kyliyanisse@gmail.com</p>
+        <p>📍 Grand-Bassam, Côte d'Ivoire</p>
+      </div>
+      <div class="footer-section">
+        <h4>{{ T.footer.socials }}</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/yao-yanisse-kyliane-kouassi-323481378/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/YANIXX35/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kouassi Yao Yanisse Kyliane. {{ T.footer.copyright }}</p>
+    </div>
+  </div>
+</footer>
